@@ -2,5 +2,6 @@
 vault/.obsidian/workspace.json
 vault/.obsidian/workspace-mobile.json
 
-# 构建产物
-exports/
+# 构建产物（保留目录本身）
+exports/*
+!exports/.gitkeep
