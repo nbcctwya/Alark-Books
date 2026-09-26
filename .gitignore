@@ -1,0 +1,6 @@
+# Obsidian 工作区状态（随窗口布局频繁变化，不入库）
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+
+# 构建产物
+exports/
