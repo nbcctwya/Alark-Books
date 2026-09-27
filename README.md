@@ -2,34 +2,25 @@
 
 在 Obsidian 中写作，用一份 Markdown 生成带封面、目录、章节页、图注、页眉页脚的 PDF，以及可调整字号的 EPUB。
 
-**先看成品：** [作品书架](exports/index.html) · [视觉设计手册](design/visual-system.html) · [写作规范](design/writing-guide.md)
-
-当前视觉方向为**纸本与摄影刊物**：宋体标题、首行缩进、自然纸白、外侧页码、细线表格，并提供摄影／纯字体两种封面。详见 [v0.2 设计调整](design/editorial-direction.md)。
-
-另有独立的 **SPECTACLE 高冲击编辑主题**，用于《欲望制造》：黑红银广告图像、巨幅字排与整页宣言。[查看视觉方案](design/spectacle.html) · [配置说明](design/spectacle.md)。
-
-```bash
-python scripts/publish.py build desire-manufacture --profile all --epubcheck
-```
-
 ## 五款设计样书
 
-[打开五款设计对照](design/five-designs.html) · [商业与投资主题说明](design/business-investment.md)
+项目目前包含五本独立样书，覆盖摄影书刊、极简随笔、奢华传播、商业蓝图和投资年鉴。整体以纸本书籍与杂志为视觉方向，每本均可生成竖版、横版、A4 PDF，以及流式 EPUB 和 HTML 阅读版。
 
-| 书名 | 视觉方向 | 主题配置 |
-| --- | --- | --- |
-| 内容的复利 | 摄影书刊 | editorial + 摄影封面 |
-| 留一点时间思考 | 极简随笔 | editorial + 纯字封面 |
-| 欲望制造 | 奢华传播 | spectacle |
-| 生意的结构 | 商业蓝图 | business |
-| 穿越波动 | 投资年鉴 | investment |
+| 样书 / 原稿 | 章节 | 视觉方向 | `design` 配置 |
+| --- | --- | --- | --- |
+| [内容的复利](vault/books/layout-lab/) | 5 | 摄影书刊：宋体、自然纸白、摄影图版 | `editorial`，摄影封面 |
+| [留一点时间思考](vault/books/field-notes/) | 2 | 极简随笔：纯字封面、细线与留白 | `editorial`，纯字封面 |
+| [欲望制造](vault/books/desire-manufacture/) | 4 | 奢华传播：黑红银、巨幅字排、广告摄影 | `spectacle` |
+| [生意的结构](vault/books/business-architecture/) | 4 | 商业蓝图：钴蓝、工程网格、流程图与经营算式 | `business` |
+| [穿越波动](vault/books/through-volatility/) | 4 | 投资年鉴：深绿、米纸色、宋体、细金线与数据图版 | `investment` |
 
-两本新样书各四章，均提供竖版、横版、A4 PDF 与流式 EPUB。商业案例与投资图表使用明确标注的虚构数据。封面支持 PNG、JPEG 和 SVG。
+五款视觉方案对应四个代码主题：摄影书刊与极简随笔共用 `editorial`，通过封面、素材与内容节奏形成不同表达。商业和投资样书中的案例、图表采用明确标注的虚构数据或数学演示。
 
-```bash
-python scripts/publish.py build business-architecture --profile all --epubcheck
-python scripts/publish.py build through-volatility --profile all --epubcheck
-```
+**在 GitHub 阅读设计说明：** [纸本与摄影方向](design/editorial-direction.md) · [奢华传播](design/spectacle.md) · [商业蓝图与投资年鉴](design/business-investment.md) · [写作规范](design/writing-guide.md)
+
+**在本地查看成品：** 完成下方构建后，用浏览器打开 `exports/index.html` 查看作品书架，打开 `design/five-designs.html` 并排比较五款设计。`exports/visual-review/five-designs.png` 是五张实际 PDF 封面的组合预览。
+
+> GitHub 仓库保存原稿、代码、设计说明和素材。`exports/` 下的 PDF、EPUB、HTML、截图与报告均为本地构建产物，不提交 Git；设计 HTML 中引用的封面和样张也需要先构建，GitHub 文件页面不会直接呈现完整的本地预览。
 
 ## 日常使用
 
@@ -57,7 +48,7 @@ python scripts/publish.py build --all --profile all
 
 每本书的结果保存在 `exports/<书籍目录名>/`。`exports/index.html` 在构建后自动更新，可以直接用浏览器打开。`website/index.html` 是同一书架的入口。
 
-本次提供两本独立样书：五章图文长书 `layout-lab`《内容的复利》，以及两章文字札记 `field-notes`《留一点时间思考》。现有 `vault/books/ai-media` 未改动，也没有被添加到自动构建列表。
+`build --all` 会导出所有含 `book.yml` 的书籍目录，目前为上表中的五本样书。现有 `vault/books/ai-media` 保持原样，尚未配置 `book.yml`，因此不会参与自动构建。
 
 ## 目录约定
 
@@ -86,13 +77,23 @@ series: CREATOR SYSTEMS
 volume: '01'
 date: '2026-09'
 edition: 第一版
-theme: vermilion  # 或 forest
+design: editorial  # editorial / spectacle / business / investment
+theme: vermilion    # 基础主题色，可选 vermilion / forest
+cover_image: assets/editorial/coastal-study.png
+cover_alt: 海岸与自然光
 chapters:
-  - 01-preface.md
+  - 01-observe.md
   - 02-system.md
+  - 03-business.md
+  - 04-review.md
+  - 05-specimens.md
 ```
 
 `chapters` 是唯一的章节顺序来源。提纲、草稿、参考笔记只有被列入时才会进入成书。添加、删去或调整章节，只需修改该列表。`init` 会生成稳定的 UUID，不覆盖已存在的目录。标题必填，其他字段参见样书；日期建议用引号。
+
+`design` 决定设计语言，`theme` 是基础配色字段；`spectacle`、`business`、`investment` 在各自样式中定义专属色板。`editorial` 不设置 `cover_image` 时使用纯字封面；封面图支持 PNG、JPEG、SVG，路径相对于 `vault/`。新建书籍请使用 `init` 生成自己的编号，不复用示例 UUID。
+
+其他主题还使用 `cover_title_lines` 控制封面标题换行，以及章节 frontmatter 中的 `kicker`、`subtitle`、`statement`。完整配置可直接参考上表中各书的 `book.yml` 与正文文件。
 
 品牌从 AIark 改为 Alark 时，修改 `publishing.yml` 的 `brand.name`；两者的准确拼写会保留在元数据里。书籍可以覆盖作者署名，所有已配置书籍重新构建后使用新的品牌。
 
@@ -117,9 +118,11 @@ PDF 支持嵌入中文字体、可点击目录与书签、页码、跨章跳转�
 conda env update -f environment.yml
 conda activate webproj
 python scripts/bootstrap_fonts.py
-python scripts/make_samples.py
 python scripts/publish.py build --all --profile all
+python scripts/make_design_boards.py
 ```
+
+仓库已包含五本样书所需的素材，常规构建无需重新生成。修改图表后，可运行 `python scripts/make_finance_samples.py` 重建商业与投资 SVG，或运行 `python scripts/make_samples.py` 重建基础图文测试素材，再构建对应书籍。`make_design_boards.py` 依赖五本书已经生成的封面与两本新书的竖版 PDF。
 
 字体脚本需要网络，只从 Google Fonts 官方仓库下载 Noto Serif SC / Noto Sans SC，生成常规字重。大型 TTF 不入 Git，OFL 许可证保留在 `design/fonts/`。PDF 自动嵌入用到的字体；EPUB 嵌入按本书内容裁剪的字体，并附许可证。首次安装需要 Pango 原生库，已经写入 Conda 配置。Linux 启动脚本会自动发现当前环境的动态库路径。
 
@@ -143,7 +146,17 @@ python scripts/publish.py build --all --profile all --epubcheck
 python scripts/check_epub.py exports/layout-lab/layout-lab.epub
 ```
 
-视觉回归脚本 `python scripts/browser_check.py` 需要 Playwright 与 Chromium（本机已有）。它检查书架、视觉手册、HTML 正文和 EPUB XHTML 在桌面及 390 px 手机宽度下的溢出、图片加载和字体状态，并保存截图到 `exports/visual-review/`。它不替代 Apple Books、微信读书等实际阅读器的实机测试。
+视觉回归脚本需先完成五本书的构建和预览图生成，并安装 Playwright 的 Chromium：
+
+```bash
+python -m pip install playwright
+python -m playwright install chromium
+python scripts/browser_check.py
+```
+
+`python scripts/browser_check.py` 使用 Playwright 与 Chromium（本机已有）。它检查书架、五款设计对照、视觉手册、HTML 正文和 EPUB XHTML 在桌面及 390 px 手机宽度下的溢出、图片加载和字体状态，并保存截图到 `exports/visual-review/`。它不替代 Apple Books、微信读书等实际阅读器的实机测试。
+
+最近一次验证覆盖八项转换回归测试、32 个浏览器页面与视口组合。两本新书的六份 PDF 无检查提醒，两本 EPUBCheck 均零错误、零警告。详细记录见 [验证记录](design/validation.md)。
 
 ## 定稿和印刷
 
