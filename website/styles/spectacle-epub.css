@@ -1,0 +1,11 @@
+/* Reflowable companion: reader-controlled font size, campaign identity preserved. */
+body { color: #111110; }
+h1 { font-family: ArkSans, sans-serif; font-size: 2.5em; line-height: 1.25; letter-spacing: -.04em; margin: 1em 0; }
+h2 { font-family: ArkSans, sans-serif; font-size: 1.4em; }
+section > p { text-indent: 0; margin-bottom: .8em; }
+.eyebrow { color: #b1261d; letter-spacing: .13em; font-size: .8em; }
+blockquote { font-size: 1.5em; padding-left: .5em; border-left: .15em solid #ee2d20; margin: 1.5em 0; }
+.callout { border-top: 2px solid #111110; border-bottom: 0; }
+.callout-title { color: #b1261d; }
+th { background: #111110; color: #f8f3e9; }
+.campaign-epub-statement { border-top: 3px solid #ee2d20; padding-top: .8em; font-size: 1.4em; }

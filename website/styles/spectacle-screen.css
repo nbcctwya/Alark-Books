@@ -1,0 +1,39 @@
+@media screen {
+ html { background: #232323; }
+ body.spectacle { max-width: 1000px; margin: 28px auto; padding: 0; background: #f4efe6; }
+ .spectacle .cover,.spectacle .manifesto,.spectacle .campaign-opener { width: 100%; max-width: var(--page-width); margin: 0 auto; }
+ .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding: 55px 64px; }
+ .spectacle .contents a::after { content: ''; }
+ .spectacle .prose { max-width: none; }
+ .spectacle .prose > p { max-width: none; }
+ .spectacle .prose figure img { max-width: 100%; }
+}
+@media screen and (max-width: 650px) {
+ body.spectacle { margin: 0; font-size: 16px; }
+ .spectacle .cover { height: 720px; padding: 24px; }
+ .campaign-masthead { font-size: 8px; }
+ .campaign-masthead span:first-child { font-size: 25px; }
+ .spectacle .campaign-title,.spectacle.landscape .campaign-title { left: 24px; right: 24px; top: 90px; width: auto; }
+ .spectacle .campaign-title h1,.spectacle.landscape .campaign-title h1 { font-size: 62px; }
+ .spectacle.landscape .campaign-title h1 span { display: inline; }
+ .spectacle .campaign-title .campaign-subtitle { font-size: 12px; }
+ .spectacle .campaign-image,.spectacle.landscape .campaign-image { width: 94%; height: 370px; right: 0; bottom: 88px; }
+ .spectacle .campaign-word,.spectacle.landscape .campaign-word { font-size: 88px; left: 18px; bottom: 76px; }
+ .spectacle .campaign-author,.spectacle.landscape .campaign-author { left: 24px; bottom: 56px; }
+ .campaign-band { height: 40px; padding: 12px 0; font-size: 11px; }
+ .spectacle .manifesto,.spectacle .campaign-opener { height: 650px; padding: 24px; }
+ .spectacle .manifesto h1,.spectacle.landscape .manifesto h1,.spectacle .finale h1 { font-size: 41px; margin-top: 120px; }
+ .manifesto-caption { font-size: 10px; }
+ .spectacle .opener-index,.spectacle.landscape .opener-index { font-size: 145px; top: 72px; right: 24px; }
+ .spectacle .opener-title,.spectacle.landscape .opener-title { left: 24px; right: 24px; top: 315px; }
+ .spectacle .opener-title h1,.spectacle.landscape .opener-title h1 { font-size: 46px; }
+ .spectacle .opener-statement,.spectacle.landscape .opener-statement { left: 24px; right: 24px; bottom: 70px; font-size: 19px; }
+ .opener-bottom { left: 24px; bottom: 25px; }
+ .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding: 36px 24px; }
+ .spectacle .contents h1 { font-size: 30px; }
+ .spectacle .contents a { font-size: 19px; }
+ .spectacle blockquote { font-size: 27px; }
+ .spectacle .prose figure img,.spectacle.landscape .prose figure img { max-width: 100%; }
+ .spectacle table { font-size: 12px; }
+ .spectacle th,.spectacle td { padding: 8px 5px; }
+}

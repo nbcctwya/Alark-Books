@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ book.language | default('zh-CN') }}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ book.title }}</title><meta name="author" content="{{ book.author }}"><meta name="description" content="{{ book.subtitle | default('') }}">
+<link rel="stylesheet" href="styles/book.css"><link rel="stylesheet" href="styles/screen.css" media="screen"><link rel="stylesheet" href="styles/profile.css"></head>
+<body class="{{ profile_name }}">
+<section class="cover {{ 'photographic' if book.cover_asset else 'typographic' }}" aria-label="封面">
+<div class="cover-top"><span>{{ brand.imprint }}</span><span>{{ book.volume | default('01') }} · {{ book.date | default('') }}</span></div>
+<div class="cover-type"><p class="eyebrow">{{ book.series | default('ALARK LIBRARY') }}</p><h1>{{ book.title }}</h1><p class="cover-subtitle">{{ book.subtitle | default('') }}</p><p class="cover-author">{{ book.author }} 著</p></div>
+{% if book.cover_asset %}<figure class="cover-photo"><img src="{{ book.cover_asset }}" alt="{{ book.cover_alt | default('封面摄影作品') }}"></figure>{% else %}<div class="cover-imprint"><span>{{ brand.name }}</span><p>{{ brand.tagline }}</p></div>{% endif %}
+<div class="cover-bottom"><span>{{ brand.name }} / {{ book.edition | default('第一版') }}</span><span>{{ book.series | default('ALARK LIBRARY') }}</span></div>
+</section>
+<section class="colophon"><p class="eyebrow">{{ brand.imprint }}</p><h1>{{ book.title }}</h1><p class="lead">{{ book.description | default(book.subtitle) }}</p><dl><dt>作者</dt><dd>{{ book.author }}</dd><dt>出品</dt><dd>{{ brand.name }} · {{ brand.imprint }}</dd><dt>版本</dt><dd>{{ book.edition | default('第一版') }} · {{ book.date | default('') }}</dd><dt>版本编号</dt><dd>{{ book.identifier }}</dd></dl><p class="rights">{{ book.rights | default('版权所有。未经许可，不得转载或用于商业发行。') }}</p>{% if book.cover_credit %}<p class="rights">封面图像：{{ book.cover_credit }}</p>{% endif %}<p class="edition-note">{{ book.note | default('') }}</p></section>
+<nav class="contents" aria-label="目录"><p class="eyebrow">CONTENTS</p><h1>目录</h1><ol>{% for chapter in chapters %}<li><a href="#{{ chapter.id }}"><span class="toc-number">{{ chapter.number }}</span><span>{{ chapter.title }}</span></a></li>{% endfor %}</ol></nav>
+{% for chapter in chapters %}<section class="chapter" id="{{ chapter.id }}"><header class="chapter-heading"><p class="chapter-number">{{ chapter.number }}</p><h1>{{ chapter.title }}</h1>{% if chapter.subtitle %}<p class="chapter-subtitle">{{ chapter.subtitle }}</p>{% endif %}</header><div class="prose">{{ chapter.html | safe }}</div></section>{% endfor %}
+<section class="endpage"><p class="end-ornament">＊</p><p class="end-title">{{ book.title }}</p><p>{{ book.author }}</p><p class="end-imprint">{{ brand.name }} · {{ brand.imprint }}</p></section>
+</body></html>

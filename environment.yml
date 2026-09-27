@@ -1,0 +1,9 @@
+name: webproj
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pango>=1.50
+  - pip
+  - pip:
+      - -r requirements.txt

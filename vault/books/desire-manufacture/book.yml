@@ -1,0 +1,26 @@
+title: 欲望制造
+subtitle: 注意力、品牌与被渴望的理由
+author: Alark
+language: zh-CN
+identifier: urn:uuid:aa87c37b-a96e-433d-b874-492d7a8d89bf
+series: THE DESIRE ISSUE
+volume: '03'
+date: '2026-09'
+edition: 高冲击编辑实验版 · 0.1
+design: spectacle
+theme: vermilion
+cover_image: assets/desire-manufacture/chrome-desire.png
+cover_alt: 黑色背景中被猩红丝带包围的镜面银色香水瓶
+cover_credit: 内置 imagegen 生成的虚构奢侈品视觉实验，非实拍、非真实商品广告。
+cover_title_lines: [欲望, 制造]
+manifesto_lines: [先让人停下。, 再值得留下。]
+manifesto_caption: ATTENTION IS THE ENTRANCE. VALUE IS THE REASON TO STAY.
+end_lines: [制造期待。, 兑现期待。]
+description: 一场关于品牌表达的视觉实验。从第一眼的冲击，到可以辨认的符号，再到足以支撑期待的交付，让传播成为一套可以被检查的创作过程。
+note: 本书为设计样书。香氛品牌「无声剧场」为虚构案例，图像为 AI 生成。文中的设计判断用于讨论和试验，不代表已经验证的传播效果。
+rights: © 2026 Alark。原创样本文字与版式，可随本项目使用与修改。
+chapters:
+  - 01-attention.md
+  - 02-memory.md
+  - 03-desire.md
+  - 04-delivery.md

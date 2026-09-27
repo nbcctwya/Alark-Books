@@ -1,0 +1,34 @@
+brand:
+  name: AIark
+  alternate: Alark
+  imprint: Alark 知新录
+  tagline: 在变化中，建立自己的方法。
+  author: Alark
+profiles:
+  portrait:
+    label: 阅读本
+    width_mm: 148
+    height_mm: 210
+    margin_top_mm: 19
+    margin_bottom_mm: 19
+    margin_inner_mm: 19
+    margin_outer_mm: 16
+    font_pt: 10.5
+  landscape:
+    label: 图解本
+    width_mm: 240
+    height_mm: 170
+    margin_top_mm: 17
+    margin_bottom_mm: 17
+    margin_inner_mm: 20
+    margin_outer_mm: 18
+    font_pt: 11
+  a4:
+    label: 工作手册
+    width_mm: 210
+    height_mm: 297
+    margin_top_mm: 22
+    margin_bottom_mm: 22
+    margin_inner_mm: 24
+    margin_outer_mm: 20
+    font_pt: 11

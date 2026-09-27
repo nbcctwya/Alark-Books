@@ -1,0 +1,7 @@
+body { font-family: ArkSerif,serif; color: #25483e; }
+h1 { text-align: center; border-bottom: 1px solid #a67d3f; padding-bottom: .6em; }
+h2 { border-bottom: 1px solid #c8c4ae; padding-bottom: .3em; }
+.eyebrow,.callout-title { color: #725628; }
+th { background: #e3e6da; color: #25483e; }
+.design-statement { text-align: center; text-indent: 0; color: #725628; margin: 1em 0 2em; }
+blockquote { color: #725628; text-align: center; }

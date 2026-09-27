@@ -1,0 +1,65 @@
+/* BUSINESS BLUEPRINT — engineered typography, cobalt rules, annotated diagrams. */
+:root { --paper: #fbfcf8; --ink: #13234a; --muted: #64728a; --line: #cbd6e9; --blue: #1545ba; --orange: #db652e; }
+@page { background: #fbfcf8; }
+.business { font-family: ArkSans,sans-serif; line-height: 1.75; }
+.business .cover { padding: 13mm; border-right: 7mm solid var(--blue); background: #f8f9f5; }
+.studio-masthead { display: flex; gap: 9mm; align-items: baseline; font: 7pt ArkSans; letter-spacing: .04em; }
+.studio-masthead span:first-child { font: 16pt ArkSans; }
+.business .studio-volume { position: absolute; top: 22mm; right: 13mm; color: var(--blue); font: 40pt/1 ArkSans; }
+.business .studio-title { position: absolute; top: 34mm; left: 13mm; right: 13mm; }
+.studio-kicker { font: 6.5pt ArkSans; letter-spacing: .1em; }
+.business .studio-title h1 { font: bold 46pt/1.16 ArkSans; letter-spacing: -.055em; margin: 5mm 0 4mm; color: var(--blue); }
+.studio-title h1 span { display: block; }
+.studio-subtitle { font: 10pt/1.7 ArkSans; }
+.studio-author { margin-top: 4mm; font: 8pt ArkSans; }
+.business .studio-art { position: absolute; width: 119mm; height: auto; left: 11mm; bottom: 24mm; }
+.studio-footer { position: absolute; left: 13mm; right: 13mm; bottom: 11mm; border-top: .8pt solid currentColor; padding-top: 3mm; display: flex; justify-content: space-between; font: 6.5pt ArkSans; }
+.business h1,.business h2,.business h3 { font-family: ArkSans; }
+.business .eyebrow { color: var(--blue); }
+.business .colophon h1 { font-size: 24pt; }
+.business .contents { padding-top: 8mm; }
+.business .contents h1 { font-size: 24pt; letter-spacing: -.05em; margin: 6mm 0 10mm; }
+.business .contents li { border-top: 1pt solid var(--blue); padding: 4mm 0; }
+.business .contents a { font-family: ArkSans; font-size: 12pt; }
+.business .toc-number { font: 17pt ArkSans; color: var(--blue); width: 15mm; }
+.toc-subtitle { font: 6.5pt ArkSans; letter-spacing: .07em; margin: 1mm 0 0 15mm; color: var(--muted); }
+.business .chapter-heading { padding-top: 5mm; margin-bottom: 5mm; border-top: 2.5pt solid var(--blue); position: relative; }
+.business .chapter-number { position: absolute; right: 0; top: 6mm; margin: 0; font: 33pt ArkSans; color: var(--blue); }
+.business .chapter-heading h1 { font: 24pt/1.5 ArkSans; margin: 4mm 0 3mm; padding-right: 18mm; }
+.business .chapter-subtitle { max-width: 96mm; font-family: ArkSans; font-size: 8.5pt; }
+.chapter-brief { margin: 0 0 6mm; padding: 3mm 0; break-inside: avoid; break-after: avoid; }
+.business .chapter-brief { border-left: 2pt solid var(--orange); padding-left: 4mm; }
+.chapter-brief span { font: 7pt ArkSans; color: var(--muted); }
+.chapter-brief p { font-size: 9.5pt; margin-top: 1mm; }
+.business .prose > p,.business .text-flow > p { text-indent: 0; margin-bottom: 2.5mm; }
+.business h2 { color: var(--blue); font-size: 13pt; margin-top: 6mm; }
+.business .callout { border-color: var(--blue); }
+.business .callout-title { color: var(--blue); }
+.business blockquote { border-left: 2pt solid var(--orange); padding-left: 4mm; font: 12pt/1.8 ArkSans; margin-left: 0; }
+.business table { border-top: 1.5pt solid var(--blue); }
+.business th { background: var(--blue); color: #fff; border-color: var(--blue); }
+.business .prose figure img { width: 100%; max-height: 100mm; }
+.business figcaption { color: #536482; }
+.business .endpage { text-align: left; border-top: 2pt solid var(--blue); }
+.business .end-title { font: 25pt/1.7 ArkSans; color: var(--blue); margin-top: 10mm; }
+.business.landscape .studio-title { top: 34mm; width: 96mm; }
+.business.landscape .studio-title h1 { font-size: 41pt; }
+.business.landscape .studio-art { width: 115mm; left: auto; right: 10mm; bottom: 38mm; }
+.business.landscape .studio-volume { right: 14mm; top: 25mm; font-size: 29pt; }
+.business.landscape .studio-subtitle { max-width: 89mm; }
+.business.landscape .chapter-heading h1 { font-size: 25pt; }
+.business.landscape .chapter-subtitle { max-width: 160mm; }
+.business.landscape .colophon { padding-top: 1mm; }
+.business.landscape .colophon dl { margin: 7mm 0 5mm; }
+.business.landscape .contents { padding-top: 0; }
+.business.landscape .contents h1 { margin-bottom: 6mm; }
+.business.landscape .contents li { padding: 2.8mm 0; }
+.business.landscape .prose figure img { max-width: 182mm; max-height: 75mm; }
+.business.landscape .text-flow { font-size: 10pt; line-height: 1.75; column-gap: 10mm; }
+.business.a4 .studio-title { top: 45mm; }
+.business.a4 .studio-title h1 { font-size: 62pt; }
+.business.a4 .studio-art { width: 175mm; left: 12mm; bottom: 34mm; }
+.business.a4 .studio-volume { font-size: 56pt; top: 32mm; }
+
+/* Keep compact comparison tables together on the page. */
+.business table { break-inside: avoid; }

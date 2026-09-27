@@ -1,0 +1,24 @@
+title: 内容的复利
+subtitle: 从 AI 创作到可持续的个人商业
+series: CREATOR SYSTEMS
+eyebrow: A FIELD GUIDE FOR INDEPENDENT MINDS
+volume: '01'
+author: Alark
+language: zh-CN
+identifier: urn:uuid:e428ca94-ac38-4113-98cd-34e1783d7c91
+date: '2026-09'
+edition: 纸本实验版 · 0.2
+theme: vermilion
+description: 从一个真实问题出发，让观察、表达、连接与交付构成可以持续运转的创作系统。
+note: 本书为独立排版样书，文字、案例与数据均用于设计测试，不代表真实经营业绩或投资建议。
+rights: © 2026 Alark。项目原创排版样例，可随本项目使用与修改。
+chapters:
+  - 01-observe.md
+  - 02-system.md
+  - 03-business.md
+  - 04-review.md
+  - 05-specimens.md
+
+cover_image: assets/editorial/coastal-study.png
+cover_alt: 石阶与海面，低饱和色调的摄影风格图像
+cover_credit: AI 生成的摄影风格测试图，非实拍记录。

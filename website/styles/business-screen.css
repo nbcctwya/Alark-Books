@@ -1,0 +1,27 @@
+@media screen {
+ html { background: #e3e8f0; }
+ body.business { max-width: 1000px; margin: 24px auto; padding: 40px 50px; background: #fbfcf8; }
+ .business .cover { width: 100%; max-width: var(--page-width); margin: 0 auto 60px; }
+ .business .colophon,.business .contents,.business .chapter,.business .endpage { margin: 0; padding: 40px 0; }
+ .business .contents a::after { content: ''; }
+ .business.landscape .text-flow { columns: auto; }
+}
+@media screen and (max-width: 650px) {
+ body.business { margin: 0; padding: 24px; font-size: 16px; }
+ .business .cover { height: 650px; padding: 18px 12px; border-right-width: 7px; }
+ .studio-masthead { gap: 10px; font-size: 7px; }
+ .studio-masthead span:first-child { font-size: 20px; }
+ .business .studio-title,.business.landscape .studio-title { top: 100px; left: 12px; right: 12px; width: auto; }
+ .business .studio-title h1,.business.landscape .studio-title h1 { font-size: 56px; }
+ .business .studio-volume,.business.landscape .studio-volume { top: 61px; right: 15px; font-size: 32px; }
+ .studio-subtitle { font-size: 13px; }
+ .business .studio-art,.business.landscape .studio-art { left: 0; right: auto; width: 96%; bottom: 65px; }
+ .studio-footer { left: 12px; right: 12px; font-size: 8px; bottom: 22px; }
+ .business .chapter-heading h1,.business.landscape .chapter-heading h1 { font-size: 25px; padding-right: 45px; }
+ .business .chapter-number { font-size: 30px; }
+ .business .contents h1 { font-size: 28px; }
+ .business .contents a { font-size: 17px; }
+ .business .prose figure img,.business.landscape .prose figure img { max-width: 100%; }
+ .business table { font-size: 12px; }
+ .business th,.business td { padding: 8px 5px; }
+}

@@ -1,0 +1,70 @@
+/* CAPITAL & TIME — an archival financial annual with analytical plates. */
+:root { --paper: #f4f0e6; --ink: #25483e; --muted: #73766b; --line: #c8c4ae; --gold: #a67d3f; }
+@page { background: #f4f0e6; }
+.investment { color: var(--ink); font-family: ArkSerif,serif; line-height: 1.8; }
+.investment .cover { padding: 14mm; background: #f4f0e6; border-top: 7mm solid #25483e; }
+.studio-masthead { display: flex; justify-content: space-between; gap: 6mm; align-items: baseline; font: 7pt ArkSans; letter-spacing: .1em; }
+.studio-masthead span:first-child { font: 15pt ArkSerif; }
+.investment .studio-volume { position: absolute; top: 31mm; right: 16mm; color: var(--gold); font: 27pt ArkSerif; border-top: .5pt solid var(--gold); border-bottom: .5pt solid var(--gold); padding: 2mm 0; }
+.investment .studio-title { position: absolute; left: 16mm; right: 16mm; top: 37mm; }
+.studio-kicker { font: 6.5pt ArkSans; letter-spacing: .1em; color: var(--gold); }
+.investment .studio-title h1 { font: 52pt/1.24 ArkSerif; letter-spacing: .05em; margin: 6mm 0 4mm; }
+.studio-title h1 span { display: block; }
+.studio-subtitle { font: 9pt/1.8 ArkSerif; }
+.studio-author { margin-top: 4mm; font: 8pt ArkSerif; }
+.investment .studio-art { position: absolute; width: 121mm; height: auto; left: 14mm; bottom: 23mm; }
+.studio-footer { position: absolute; left: 14mm; right: 14mm; bottom: 10mm; padding-top: 3mm; border-top: .5pt solid #a67d3f; display: flex; justify-content: space-between; font: 6.5pt ArkSans; letter-spacing: .05em; }
+.investment .eyebrow { color: var(--gold); }
+.investment .colophon h1 { font-size: 23pt; }
+.investment .contents { padding-top: 12mm; }
+.investment .contents h1 { font-size: 21pt; letter-spacing: .01em; margin: 6mm 0 12mm; }
+.investment .contents li { border-bottom: .5pt solid var(--line); padding: 4mm 0; }
+.investment .contents a { font-size: 12pt; }
+.investment .toc-number { color: var(--gold); font: 13pt ArkSerif; width: 14mm; }
+.toc-subtitle { font: 6.5pt ArkSans; color: var(--muted); letter-spacing: .08em; margin: 1mm 0 0 14mm; }
+.investment .chapter-heading { text-align: center; padding: 6mm 0; margin-bottom: 4mm; border-bottom: .5pt solid var(--gold); }
+.investment .chapter-number { margin-bottom: 4mm; color: var(--gold); font: 17pt ArkSerif; }
+.investment .chapter-heading h1 { padding: 0; margin: 4mm 0; font-size: 25pt; }
+.investment .chapter-subtitle { font: 8.5pt/1.8 ArkSerif; }
+.chapter-brief { margin: 0 5mm 7mm; padding: 2mm 0; text-align: center; break-inside: avoid; break-after: avoid; }
+.chapter-brief span { font: 6.5pt ArkSans; color: var(--gold); letter-spacing: .1em; }
+.chapter-brief p { font: 9pt/1.8 ArkSerif; margin-top: 1mm; }
+.investment h2 { font-size: 13pt; border-bottom: .4pt solid var(--line); padding-bottom: 2mm; }
+.investment .callout { border-top-color: var(--gold); border-bottom-color: var(--gold); margin-top: 5mm; }
+.investment .callout-title { color: #725628; }
+.investment table { font-size: 8pt; border-color: #25483e; }
+.investment th { background: #e3e6da; border-color: #25483e; }
+.investment .prose figure img { width: 100%; max-height: 103mm; }
+.investment blockquote { font: 12pt/1.9 ArkSerif; text-align: center; color: #725628; }
+.investment .footnotes { font-size: 7pt; }
+.investment .footnotes a { border-bottom: .4pt solid var(--line); }
+.investment .endpage { padding-top: 38mm; }
+.investment .end-title { font-size: 22pt; margin-top: 12mm; }
+.investment.landscape .studio-title { top: 36mm; width: 98mm; }
+.investment.landscape .studio-title h1 { font-size: 43pt; }
+.investment.landscape .studio-art { width: 116mm; left: auto; right: 12mm; bottom: 39mm; }
+.investment.landscape .studio-volume { right: 18mm; top: 33mm; }
+.investment.landscape .studio-subtitle { max-width: 86mm; }
+.investment.landscape .colophon { padding-top: 0; }
+.investment.landscape .colophon h1 { margin: 4mm 0; }
+.investment.landscape .colophon dl { margin: 7mm 0 4mm; }
+.investment.landscape .contents { padding-top: 0; }
+.investment.landscape .contents h1 { margin-bottom: 6mm; }
+.investment.landscape .contents li { padding: 2.7mm 0; }
+.investment.landscape .chapter-heading { padding-top: 0; }
+.investment.landscape .chapter-number { position: static; font-size: 15pt; margin-bottom: 2mm; }
+.investment.landscape .chapter-heading h1 { font-size: 23pt; }
+.investment.landscape .text-flow { font-size: 10pt; line-height: 1.8; }
+.investment.landscape .prose figure img { max-width: 180mm; max-height: 86mm; }
+.investment.a4 .studio-title { top: 48mm; }
+.investment.a4 .studio-title h1 { font-size: 72pt; }
+.investment.a4 .studio-art { width: 178mm; left: 16mm; bottom: 28mm; }
+.investment.a4 .studio-volume { font-size: 38pt; right: 21mm; top: 47mm; }
+
+/* Keep compact comparison tables together on the page. */
+.investment table { break-inside: avoid; }
+
+.investment .prose figure { margin: 5mm 0; }
+.investment .footnotes { margin-top: 2mm; line-height: 1.5; }
+.investment .footnotes hr { margin: 2mm 0; }
+.investment .callout { padding: 3mm 0; margin-bottom: 3mm; }

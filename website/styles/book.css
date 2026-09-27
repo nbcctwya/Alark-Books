@@ -1,0 +1,108 @@
+@font-face { font-family: ArkSerif; src: url('../fonts/NotoSerifSC-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: ArkSans; src: url('../fonts/NotoSansSC-Regular.ttf'); font-weight: 400; }
+:root { --ink: #292722; --muted: #726e65; --paper: #fdfcf8; --accent: #776956; --line: #c7c1b5; }
+* { box-sizing: border-box; }
+html { color: var(--ink); background: var(--paper); }
+body { margin: 0; font-family: ArkSerif, serif; line-height: 1.75; font-size: 10.5pt; }
+h1,h2,h3,h4,h5,h6 { font-family: ArkSerif, serif; font-weight: 400; line-height: 1.5; break-after: avoid; }
+h1 { font-size: 25pt; margin: 0 0 8mm; }
+h2 { font-size: 13pt; margin: 7mm 0 3mm; }
+h3 { font-size: 10.5pt; margin: 5mm 0 2mm; font-family: ArkSans, sans-serif; }
+p { margin: 0; orphans: 3; widows: 3; }
+.prose > p,.text-flow > p { text-align: justify; text-indent: 2em; margin-bottom: .8mm; }
+a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+strong { font-family: ArkSans, sans-serif; font-weight: 400; }
+em { font-style: normal; border-bottom: .4pt dotted var(--line); }
+.eyebrow { font-family: ArkSans, sans-serif; font-size: 7pt; letter-spacing: .15em; color: var(--muted); line-height: 1.7; }
+.cover { page: cover; position: relative; height: var(--page-height); padding: 12mm 14mm; background: var(--paper); overflow: hidden; break-after: page; }
+.cover-top { display: flex; justify-content: space-between; font-family: ArkSerif; font-size: 8pt; letter-spacing: .15em; padding-bottom: 4mm; border-bottom: .5pt solid var(--ink); }
+.cover-type { position: relative; margin-top: 14mm; }
+.cover-type h1 { font-family: ArkSerif; font-size: 34pt; letter-spacing: .04em; line-height: 1.5; margin: 3mm 0; overflow-wrap: anywhere; }
+.cover-subtitle { font-size: 10pt; letter-spacing: .04em; margin-top: 2mm; }
+.cover-author { font-size: 9pt; margin-top: 6mm; }
+.cover-photo { position: absolute; left: 14mm; right: 14mm; bottom: 25mm; height: 80mm; margin: 0; }
+.cover-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cover-bottom { position: absolute; left: 14mm; right: 14mm; bottom: 11mm; display: flex; justify-content: space-between; align-items: center; font: 6.5pt ArkSans; letter-spacing: .06em; }
+.cover.typographic .cover-type { margin-top: 30mm; max-width: 100mm; }
+.cover.typographic h1 { font-size: 36pt; max-width: 100mm; line-height: 1.65; }
+.cover.typographic .cover-author { margin-top: 12mm; }
+.cover-imprint { position: absolute; left: 14mm; bottom: 31mm; }
+.cover-imprint span { font-size: 15pt; letter-spacing: .08em; }
+.cover-imprint p { font-size: 8pt; margin-top: 4mm; color: var(--muted); }
+.colophon,.contents,.endpage { break-before: page; }
+.colophon { padding-top: 22mm; }
+.colophon h1 { font-size: 19pt; margin: 7mm 0; }
+.lead { font-size: 10pt; line-height: 1.9; }
+dl { margin: 18mm 0 9mm; font-size: 8pt; line-height: 1.7; }
+dt { float: left; width: 20mm; color: var(--muted); }
+dd { margin-left: 24mm; margin-bottom: 2mm; overflow-wrap: anywhere; }
+.rights,.edition-note { font-size: 7.5pt; line-height: 1.8; margin-top: 3mm; color: var(--muted); }
+.contents { padding-top: 16mm; }
+.contents h1 { margin: 4mm 0 16mm; font-size: 24pt; letter-spacing: .3em; }
+.contents ol { padding: 0; list-style: none; }
+.contents li { padding: 4mm 0; break-inside: avoid; }
+.contents a { display: block; font-size: 11pt; }
+.contents a::after { content: target-counter(attr(href), page); float: right; font-size: 9pt; }
+.toc-number { color: var(--muted); font-size: 8pt; display: inline-block; width: 11mm; }
+.chapter { break-before: page; }
+.chapter-heading { margin: 0 0 7mm; padding-top: 7mm; break-inside: avoid; break-after: avoid; }
+.chapter-number { font-family: ArkSerif; font-size: 11pt; letter-spacing: .12em; color: var(--muted); margin-bottom: 5mm; }
+.chapter-heading h1 { font-size: 24pt; margin: 0 0 5mm; line-height: 1.55; string-set: chapter-title content(); }
+.chapter-subtitle { font-size: 9pt; color: var(--muted); line-height: 1.8; }
+figure { margin: 7mm 0; text-align: center; break-inside: avoid; }
+img { max-width: 100%; height: auto; }
+.prose img { max-height: var(--image-height); object-fit: contain; }
+figcaption { font-family: ArkSans, sans-serif; font-size: 7.5pt; color: var(--muted); line-height: 1.65; text-align: left; padding-top: 3mm; }
+blockquote { margin: 7mm 6mm; padding: 0; font-size: 12pt; line-height: 1.9; }
+blockquote p { text-indent: 0; }
+.callout { border-top: .5pt solid var(--line); border-bottom: .5pt solid var(--line); padding: 3mm 0; margin: 5mm 0; font-size: 9pt; line-height: 1.8; }
+.callout-title { font-family: ArkSans; font-size: 8pt; margin-bottom: 2mm; letter-spacing: .1em; break-after: avoid; }
+.callout p { text-indent: 0; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 8.5pt; line-height: 1.65; margin: 5mm 0; border-top: .7pt solid var(--ink); border-bottom: .7pt solid var(--ink); }
+thead { display: table-header-group; }
+th,td { padding: 2.4mm 2mm; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { font-family: ArkSans; font-weight: normal; border-bottom: .5pt solid var(--ink); }
+td { border-bottom: .25pt solid var(--line); }
+tr { break-inside: avoid; }
+table.record-table th:first-child,table.record-table td:first-child { width: 12%; }
+ul,ol { padding-left: 1.6em; margin: 3mm 0 4mm; }
+li { margin-bottom: 1.2mm; orphans: 3; widows: 3; }
+pre { font-family: monospace; font-size: 8pt; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; padding: 3mm 0; border-top: .5pt solid var(--line); border-bottom: .5pt solid var(--line); break-inside: avoid; }
+code { font-family: monospace; font-size: .88em; overflow-wrap: anywhere; }
+hr { border: 0; border-top: .5pt solid var(--line); margin: 6mm 0; }
+.footnotes { font-size: 7.5pt; color: var(--muted); line-height: 1.65; break-before: avoid; }
+.footnote-ref { font-family: ArkSans; font-size: .7em; }
+.endpage { text-align: center; padding-top: 42mm; font-size: 9pt; }
+.end-ornament { font-size: 17pt; margin-bottom: 12mm; }
+.end-title { font-size: 17pt; margin-bottom: 6mm; }
+.end-imprint { margin-top: 24mm; font-size: 8pt; color: var(--muted); }
+.figure-tall img { max-height: 100mm; }
+.portrait .figure-tall { float: right; width: 43mm; margin: 3mm 0 5mm 5mm; }
+.portrait .figure-tall img { max-height: 90mm; }
+.landscape .cover-type { width: 86mm; margin-top: 17mm; }
+.landscape .cover-type h1 { font-size: 35pt; max-width: 80mm; }
+.landscape .cover-subtitle { max-width: 73mm; }
+.landscape .cover-author { margin-top: 10mm; }
+.landscape .cover-photo { left: auto; width: 116mm; right: 14mm; bottom: 31mm; height: 88mm; }
+.landscape .cover.typographic .cover-type { max-width: 180mm; width: 180mm; margin-top: 18mm; }
+.landscape .cover.typographic h1 { max-width: 180mm; font-size: 36pt; }
+.landscape .cover-imprint { left: auto; right: 14mm; bottom: 33mm; text-align: right; }
+.landscape .chapter-heading { padding-top: 4mm; margin-bottom: 6mm; }
+.landscape .chapter-number { margin-bottom: 2mm; }
+.landscape .chapter-heading h1 { font-size: 23pt; margin-bottom: 3mm; }
+.landscape .text-flow { columns: 2; column-gap: 11mm; font-size: 10.5pt; line-height: 1.8; margin-bottom: 3mm; }
+.landscape .prose > figure:not(.figure-tall) img { max-width: 148mm; max-height: 95mm; }
+.landscape .figure-tall { float: right; width: 45mm; margin: 3mm 0 5mm 6mm; }
+.landscape .figure-tall + .text-flow { columns: auto; width: 140mm; }
+.landscape .figure-tall img { max-height: 88mm; }
+.landscape h2 { margin-top: 5mm; font-size: 12.5pt; }
+.a4 .cover-type { margin-top: 23mm; }
+.a4 .cover-type h1 { font-size: 48pt; }
+.a4 .cover-photo { width: 153mm; height: 102mm; right: auto; bottom: 40mm; }
+.a4 .cover.typographic .cover-type { max-width: 166mm; margin-top: 44mm; }
+.a4 .cover.typographic h1 { max-width: 166mm; font-size: 44pt; }
+.a4 .prose img { max-width: 153mm; }
+.landscape .photo-essay { display: flex; gap: 10mm; align-items: flex-start; break-inside: avoid; margin: 8mm 0; }
+.landscape .photo-essay > blockquote { width: 52mm; flex-shrink: 0; margin: 7mm 0; font-size: 11pt; }
+.landscape .photo-essay > figure { width: 128mm; flex-shrink: 0; margin: 0; }
+.landscape .photo-essay img { width: 128mm; max-height: 88mm; }

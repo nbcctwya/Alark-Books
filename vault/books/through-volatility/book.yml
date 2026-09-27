@@ -1,0 +1,23 @@
+title: 穿越波动
+subtitle: 关于时间、风险与判断的投资札记
+author: Alark
+language: zh-CN
+identifier: urn:uuid:6ee790c6-e20b-49ab-9fc7-d387d868322c
+series: CAPITAL & TIME
+volume: '05'
+date: '2026-09'
+edition: 投资年鉴实验版 · 0.1
+design: investment
+theme: forest
+cover_image: assets/through-volatility/horizon.svg
+cover_alt: 一条有起伏的概念时间曲线
+cover_credit: Alark 原创矢量图，使用虚构数据绘制。
+cover_title_lines: [穿越, 波动]
+description: 用记录、图表与清楚的假设，观察投资中的时间、风险和判断。让一条曲线背后的问题，能够被重新阅读。
+note: 本书为排版与通识写作样书，不构成个人投资建议。所有图表均为虚构样例或给定假设下的计算，不是实际业绩或收益预测。
+rights: © 2026 Alark。原创样本文字、图表与版式，可随本项目使用和修改。
+chapters:
+  - 01-time.md
+  - 02-drawdown.md
+  - 03-cost.md
+  - 04-journal.md

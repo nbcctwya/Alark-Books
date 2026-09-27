@@ -1,0 +1,36 @@
+"""Compose previews directly from exported PDF pages; no mockup decoration."""
+from pathlib import Path
+import pymupdf
+from PIL import Image, ImageDraw, ImageFont
+ROOT=Path(__file__).resolve().parents[1]
+
+def main():
+    font=ImageFont.truetype(str(ROOT/'design/fonts/NotoSansSC-Regular.ttf'),24)
+    samples=[('business-architecture',[0,3,5,7]),('through-volatility',[0,5,6,9])]
+    for slug,pages in samples:
+        doc=pymupdf.open(ROOT/f'exports/{slug}/{slug}-portrait.pdf')
+        board=Image.new('RGB',(1680,650),'#e8e4dc')
+        draw=ImageDraw.Draw(board)
+        for i,index in enumerate(pages):
+            pix=doc[index].get_pixmap(matrix=pymupdf.Matrix(1.4,1.4),alpha=False)
+            im=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+            im.thumbnail((390,566))
+            x=20+i*420
+            board.paste(im,(x,20))
+            draw.text((x,598),f'{index+1:02d} / '+('封面' if index==0 else '内页'),font=font,fill='#575249')
+        board.save(ROOT/f'exports/{slug}/previews/design-board.png')
+    books=['layout-lab','field-notes','desire-manufacture','business-architecture','through-volatility']
+    board=Image.new('RGB',(1800,580),'#e8e4dc')
+    draw=ImageDraw.Draw(board)
+    for i,slug in enumerate(books):
+        im=Image.open(ROOT/f'exports/{slug}/cover.png').convert('RGB')
+        im.thumbnail((320,470))
+        x=20+i*360
+        board.paste(im,(x,20))
+        label=['摄影书刊','极简随笔','奢华传播','商业蓝图','投资年鉴'][i]
+        draw.text((x,510),f'0{i+1} / {label}',font=font,fill='#575249')
+    out=ROOT/'exports/visual-review'
+    out.mkdir(exist_ok=True)
+    board.save(out/'five-designs.png')
+
+if __name__=='__main__': main()

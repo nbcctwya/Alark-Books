@@ -5,3 +5,9 @@ vault/.obsidian/workspace-mobile.json
 # 构建产物（保留目录本身）
 exports/*
 !exports/.gitkeep
+
+# 本地字体可由 bootstrap_fonts.py 重建；保留授权文件
+design/fonts/*.ttf
+__pycache__/
+.cache/
+.pytest_cache/

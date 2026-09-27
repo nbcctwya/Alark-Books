@@ -1,0 +1,26 @@
+@media screen {
+ html { background: #dedfd4; }
+ body.investment { max-width: 1000px; margin: 24px auto; padding: 40px 50px; background: #f4f0e6; }
+ .investment .cover { width: 100%; max-width: var(--page-width); margin: 0 auto 60px; }
+ .investment .colophon,.investment .contents,.investment .chapter,.investment .endpage { padding: 40px 0; margin: 0; }
+ .investment .contents a::after { content: ''; }
+ .investment.landscape .text-flow { columns: auto; }
+}
+@media screen and (max-width: 650px) {
+ body.investment { margin: 0; padding: 24px; font-size: 16px; }
+ .investment .cover { height: 680px; padding: 20px 12px; border-top-width: 7px; }
+ .studio-masthead { gap: 10px; font-size: 8px; }
+ .studio-masthead span:first-child { font-size: 22px; }
+ .investment .studio-title,.investment.landscape .studio-title { top: 105px; left: 12px; right: 12px; width: auto; }
+ .investment .studio-title h1,.investment.landscape .studio-title h1 { font-size: 63px; }
+ .investment .studio-volume,.investment.landscape .studio-volume { top: 92px; right: 20px; font-size: 31px; }
+ .studio-subtitle { font-size: 12px; }
+ .investment .studio-art,.investment.landscape .studio-art { left: 0; right: auto; width: 100%; bottom: 70px; }
+ .studio-footer { font-size: 8px; left: 12px; right: 12px; bottom: 22px; }
+ .investment .chapter-heading h1,.investment.landscape .chapter-heading h1 { font-size: 28px; }
+ .investment .contents h1 { font-size: 26px; }
+ .investment .contents a { font-size: 17px; }
+ .investment .prose figure img,.investment.landscape .prose figure img { max-width: 100%; }
+ .investment table { font-size: 12px; }
+ .investment th,.investment td { padding: 8px 5px; }
+}

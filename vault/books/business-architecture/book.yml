@@ -1,0 +1,23 @@
+title: 生意的结构
+subtitle: 从价值主张到现金循环
+author: Alark
+language: zh-CN
+identifier: urn:uuid:e4ddc9f3-b6b7-414d-b6c3-84de704764fb
+series: BUSINESS FIELD MANUAL
+volume: '04'
+date: '2026-09'
+edition: 商业蓝图实验版 · 0.1
+design: business
+theme: vermilion
+cover_image: assets/business-architecture/blueprint.svg
+cover_alt: 需求、交付与现金组成的工程蓝图
+cover_credit: Alark 原创矢量图，脚本生成。
+cover_title_lines: [生意的, 结构]
+description: 把一门生意拆成可以观察的连接：谁在为什么付费，承诺怎样被交付，现金怎样回到下一轮经营。
+note: 本书为设计样书。工作室与订单均为虚构案例，数字仅用于演示，不代表真实经营业绩。
+rights: © 2026 Alark。原创排版样书与图表，可随本项目使用和修改。
+chapters:
+  - 01-value.md
+  - 02-delivery.md
+  - 03-economics.md
+  - 04-feedback.md

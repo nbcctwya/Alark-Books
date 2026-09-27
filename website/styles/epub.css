@@ -1,0 +1,34 @@
+@font-face { font-family: ArkSerif; src: url('fonts/serif.ttf'); }
+@font-face { font-family: ArkSans; src: url('fonts/sans.ttf'); }
+body { font-family: ArkSerif, serif; line-height: 1.8; margin: 5%; color: #202a29; }
+h1,h2,h3,h4,figcaption,th,.eyebrow,.callout-title { font-family: ArkSans, sans-serif; font-weight: normal; line-height: 1.4; }
+h1 { font-size: 1.9em; margin: 1em 0; }
+h2 { font-size: 1.35em; border-left: .15em solid #b44330; padding-left: .5em; margin-top: 1.8em; }
+h3 { font-size: 1.1em; }
+p { margin: 0 0 .8em; orphans: 2; widows: 2; }
+a { color: #93402e; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; object-fit: contain; }
+figure { margin: 1.5em 0; text-align: center; page-break-inside: avoid; }
+figcaption { text-align: left; color: #59615d; font-size: .8em; margin-top: .5em; }
+blockquote,.callout { margin: 1em 0; padding: .8em 1em; border-left: .2em solid #b44330; background: #f3eee5; }
+.callout-title,.eyebrow { color: #93402e; }
+table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: .85em; }
+th,td { border-bottom: 1px solid #c8c5bb; padding: .5em; text-align: left; overflow-wrap: anywhere; }
+th { background: #eee9de; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f3eee5; padding: 1em; font-size: .8em; }
+code { overflow-wrap: anywhere; }
+.footnotes { font-size: .8em; }
+.cover-page { margin: 0; padding: 0; text-align: center; }
+.cover-page img { width: 100%; max-height: 100vh; }
+/* Printed-book edition: restrained type, indented paragraphs and open tables. */
+body { color: #292722; }
+h1,h2 { font-family: ArkSerif, serif; }
+h2 { border: 0; padding-left: 0; margin-top: 1.8em; }
+section > p { text-indent: 2em; margin-bottom: .35em; }
+section > p.eyebrow { text-indent: 0; }
+a { color: inherit; }
+blockquote { border: 0; background: none; padding: 0; margin: 1.5em 1em; }
+.callout { border-left: 0; border-top: 1px solid #c8c5bb; border-bottom: 1px solid #c8c5bb; background: none; padding: .7em 0; }
+.callout-title,.eyebrow { color: #726e65; }
+th { background: none; border-top: 1px solid #292722; border-bottom: 1px solid #292722; }
+pre { background: none; border-top: 1px solid #c8c5bb; border-bottom: 1px solid #c8c5bb; padding: .7em 0; }

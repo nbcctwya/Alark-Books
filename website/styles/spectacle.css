@@ -1,0 +1,94 @@
+/* SPECTACLE — luxury campaign / loud editorial. Loaded only by design: spectacle. */
+:root { --paper: #f4efe6; --ink: #111110; --muted: #686158; --line: #beb5a8; --red: #ee2d20; }
+@page { background: #f4efe6; }
+@page cover { margin: 0; background: #070707; }
+@page campaign-black { margin: 0; background: #070707; @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+@page campaign-red { margin: 0; background: #ee2d20; @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+.spectacle { color: var(--ink); }
+.spectacle .cover { background: #070707; color: #f8f3e9; padding: 10mm; }
+.campaign-masthead { display: flex; justify-content: space-between; align-items: baseline; font: 7pt ArkSans; letter-spacing: .12em; }
+.campaign-masthead span:first-child { font: 18pt ArkSerif; letter-spacing: -.04em; }
+.campaign-title { position: absolute; top: 26mm; left: 10mm; right: 10mm; z-index: 2; }
+.campaign-title > p { font: 6.5pt ArkSans; letter-spacing: .16em; }
+.campaign-title h1 { font-size: 65pt; letter-spacing: -.04em; line-height: 1.15; margin: 3mm 0 1mm; color: #f8f3e9; }
+.campaign-title h1 span { display: inline; }
+.campaign-title .campaign-subtitle { font-size: 8.5pt; letter-spacing: .08em; margin-top: 2mm; }
+.campaign-image { position: absolute; width: 115mm; height: 115mm; max-width: none; object-fit: contain; right: 6mm; bottom: 30mm; }
+.campaign-word { position: absolute; left: 8mm; bottom: 24mm; font: 74pt/1 ArkSerif; letter-spacing: -.065em; color: #f8f3e9; }
+.campaign-author { position: absolute; left: 11mm; bottom: 17mm; font: 7pt ArkSans; }
+.campaign-band { position: absolute; bottom: 0; left: 0; right: 0; height: 12mm; background: var(--red); color: #070707; text-align: center; padding: 3.3mm 0; font: 9pt ArkSans; letter-spacing: .07em; }
+.manifesto,.campaign-opener { box-sizing: border-box; position: relative; height: var(--page-height); padding: 12mm; break-before: page; break-after: page; }
+.manifesto { page: campaign-red; background: var(--red); color: #070707; }
+.micro { font: 7pt ArkSans; letter-spacing: .15em; }
+.manifesto h1 { font: 38pt/1.5 ArkSans; margin: 32mm 0 10mm; letter-spacing: -.065em; }
+.manifesto h1 span { display: block; }
+.manifesto-caption { font: 8pt/1.8 ArkSans; letter-spacing: .04em; max-width: 100mm; }
+.manifesto-imprint { position: absolute; bottom: 13mm; left: 12mm; font: 8pt ArkSans; }
+.spectacle .colophon { padding-top: 18mm; }
+.spectacle .colophon h1 { font-size: 30pt; }
+.spectacle .eyebrow { color: #ae251e; }
+.spectacle .contents h1 { font: 28pt/1.5 ArkSans; letter-spacing: -.04em; margin-bottom: 12mm; }
+.spectacle .contents li { padding: 5mm 0; border-top: 1pt solid #111110; }
+.spectacle .contents a { font-family: ArkSans; font-size: 15pt; }
+.spectacle .toc-number { font: 24pt ArkSerif; color: #bb251b; width: 18mm; }
+.campaign-opener { page: campaign-black; background: #070707; color: #f8f3e9; }
+.opener-0 { page: campaign-red; background: var(--red); color: #070707; }
+.opener-top { display: flex; justify-content: space-between; font: 7pt ArkSans; letter-spacing: .1em; }
+.opener-index { position: absolute; top: 23mm; right: 12mm; font: 112pt/1 ArkSerif; color: #ee2d20; letter-spacing: -.07em; }
+.opener-0 .opener-index { color: #070707; }
+.opener-title { position: absolute; top: 90mm; left: 12mm; right: 12mm; }
+.opener-title > p { font: 9pt ArkSans; letter-spacing: .1em; }
+.opener-title h1 { font: 40pt/1.35 ArkSerif; letter-spacing: -.055em; margin: 3mm 0 5mm; string-set: chapter-title content(); }
+.opener-title .opener-subtitle { font: 9pt/1.8 ArkSans; letter-spacing: 0; max-width: 105mm; }
+.opener-statement { position: absolute; left: 12mm; right: 12mm; bottom: 26mm; font: 14pt/1.6 ArkSans; }
+.opener-bottom { position: absolute; left: 12mm; bottom: 12mm; font: 6.5pt ArkSans; letter-spacing: .12em; }
+.campaign-reading { page: auto; break-before: page; }
+.reading-header { display: flex; justify-content: space-between; border-top: 2pt solid #111110; padding-top: 3mm; margin-bottom: 8mm; font: 7pt ArkSans; letter-spacing: .03em; }
+.spectacle .prose > p { text-indent: 0; margin-bottom: 3mm; }
+.spectacle .prose > p:first-child { font: 12pt/1.85 ArkSerif; }
+.spectacle h2 { font-family: ArkSans; font-size: 15pt; margin: 8mm 0 4mm; letter-spacing: -.03em; }
+.spectacle blockquote { margin: 8mm 0; padding: 3mm 0 3mm 5mm; border-left: 3pt solid var(--red); font: 22pt/1.5 ArkSerif; }
+.spectacle .callout { border-top: 2pt solid #111110; border-bottom: 0; margin-top: 6mm; }
+.spectacle .callout-title { color: #ae251e; }
+.spectacle figure { margin: 6mm 0; }
+.spectacle .prose figure img { max-width: 110mm; max-height: 110mm; }
+.spectacle table { border-top: 2pt solid #111110; }
+.spectacle th { background: #111110; color: #f8f3e9; }
+.spectacle figcaption { font-size: 7pt; }
+.spectacle .finale h1 { font-size: 40pt; }
+/* Horizontal editions keep the statement on the left and image / index on the right. */
+.spectacle.landscape .campaign-title { top: 32mm; right: auto; width: 86mm; }
+.spectacle.landscape .campaign-title h1 { font-size: 57pt; }
+.spectacle.landscape .campaign-title h1 span { display: block; }
+.spectacle.landscape .campaign-subtitle { max-width: 78mm; }
+.spectacle.landscape .campaign-image { width: 116mm; height: 116mm; right: 12mm; bottom: 26mm; }
+.spectacle.landscape .campaign-word { font-size: 53pt; left: 111mm; bottom: 20mm; }
+.spectacle.landscape .campaign-author { bottom: 24mm; }
+.spectacle.landscape .manifesto h1 { font-size: 44pt; margin-top: 21mm; }
+.spectacle.landscape .manifesto-caption { max-width: 190mm; }
+.spectacle.landscape .opener-index { font-size: 142pt; right: 14mm; top: 25mm; }
+.spectacle.landscape .opener-title { top: 42mm; right: 85mm; }
+.spectacle.landscape .opener-title h1 { font-size: 44pt; }
+.spectacle.landscape .opener-statement { bottom: 30mm; }
+.spectacle.landscape .prose { max-width: 176mm; }
+.spectacle.landscape .prose figure img { max-height: 90mm; max-width: 110mm; }
+.spectacle.landscape .prose > p { max-width: 176mm; }
+.spectacle.a4 .campaign-title { top: 37mm; left: 16mm; right: 16mm; }
+.spectacle.a4 .campaign-title h1 { font-size: 96pt; }
+.spectacle.a4 .campaign-image { width: 125mm; height: 125mm; right: 16mm; bottom: 44mm; }
+.spectacle.a4 .campaign-word { font-size: 116pt; left: 13mm; bottom: 28mm; }
+.spectacle.a4 .manifesto h1 { font-size: 54pt; margin-top: 60mm; }
+.spectacle.a4 .opener-title { top: 124mm; }
+.spectacle.a4 .opener-title h1 { font-size: 59pt; }
+.spectacle.a4 .opener-index { font-size: 166pt; top: 35mm; }
+.spectacle.a4 .opener-statement { font-size: 23pt; bottom: 42mm; }
+.spectacle.a4 .prose figure img { max-width: 125mm; max-height: 125mm; }
+/* Front matter stays on one page in the shorter horizontal edition. */
+.spectacle.landscape .colophon { padding-top: 0; }
+.spectacle.landscape .colophon h1 { font-size: 24pt; margin: 4mm 0; }
+.spectacle.landscape .colophon dl { margin: 7mm 0 4mm; }
+.spectacle.landscape .colophon .rights,.spectacle.landscape .colophon .edition-note { margin-top: 2mm; }
+.spectacle.landscape .contents { padding-top: 0; }
+.spectacle.landscape .contents h1 { font-size: 25pt; margin: 4mm 0 7mm; }
+.spectacle.landscape .contents li { padding: 3mm 0; }
+.spectacle.landscape .contents .toc-number { font-size: 20pt; }

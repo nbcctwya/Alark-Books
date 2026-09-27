@@ -1,0 +1,17 @@
+title: 留一点时间思考
+subtitle: 一位独立创作者的观察札记
+series: ALARK NOTEBOOKS
+eyebrow: NOTES ON WORK & LIFE
+volume: '02'
+author: Alark
+language: zh-CN
+identifier: urn:uuid:3384520e-de6e-4d3d-a24b-2d7aa15fba42
+date: '2026-09'
+edition: 纸本实验版 · 0.2
+theme: forest
+description: 用安静的文字记录日常观察，在行动与思考之间找到自己的节奏。
+note: 独立短篇样书，用于验证少章节、纯文字与不同主题的排版。
+rights: © 2026 Alark。项目原创排版样例，可随本项目使用与修改。
+chapters:
+  - 01-space.md
+  - 02-return.md
