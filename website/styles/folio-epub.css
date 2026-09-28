@@ -1,0 +1,10 @@
+/* Reflowable edition: preserve the whole photograph and its reading order. */
+body { background:#fff; color:#242828; }
+h1 { font-size:1.7em; font-weight:normal; border:0; }
+.eyebrow { color:#727777; font-size:.7em; letter-spacing:.15em; }
+figure,.figure-tall { float:none; width:auto; margin:1.5em 0; break-inside:avoid; }
+figure img,.figure-tall img { display:block; width:auto; max-width:100%; height:auto; max-height:none; margin:0 auto; object-fit:contain; }
+figcaption { color:#616868; font-family:ArkSans,sans-serif; font-size:.8em; line-height:1.7; text-align:left; padding-top:.7em; }
+.folio-gallery { display:block; }
+.folio-gallery figure { margin-bottom:2em; }
+p { line-height:1.9; }

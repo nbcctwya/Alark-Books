@@ -1,0 +1,8 @@
+/* Reflowable companion to the editorial paper edition. */
+h1 { border-top: 1px solid #c7c1b5; padding-top: .8em; line-height: 1.6; }
+.eyebrow { font-size: .8em; letter-spacing: .08em; }
+section > p { line-height: 1.85; }
+blockquote { font-family: ArkSerif,serif; line-height: 1.9; }
+figcaption { line-height: 1.7; font-size: .8em; }
+table { margin: 1.5em 0; }
+.footnotes { line-height: 1.6; }

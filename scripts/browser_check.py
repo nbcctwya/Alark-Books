@@ -35,7 +35,23 @@ def main():
                   (slug+'-landscape', folder/f'{slug}-landscape.html'),
                   (slug+'-epub', OUT/f'{slug}-epub/EPUB/ch-02.xhtml')]
     cases.append(('five-designs', ROOT/'design/five-designs.html'))
+    cases += [('editorial-refinement', ROOT/'design/editorial-refinement.html'), ('field-notes', ROOT/'exports/field-notes/field-notes-portrait.html')]
+    cases.append(('longform-review', ROOT/'exports/longform-review/index.html'))
+    for slug in ['layout-lab','field-notes','desire-manufacture','business-architecture','through-volatility']:
+        dest=OUT/(slug+'-longform-epub')
+        with zipfile.ZipFile(ROOT/'exports'/slug/f'{slug}.epub') as archive:
+            archive.extractall(dest)
+        chapter='ch-08.xhtml' if slug!='field-notes' else 'ch-03.xhtml'
+        cases.append((slug+'-longform-epub', dest/'EPUB'/chapter))
     reports=[]
+    folio=ROOT/'exports/shore-and-space'
+    if (folio/'shore-and-space.epub').exists():
+        dest=OUT/'folio-epub'
+        with zipfile.ZipFile(folio/'shore-and-space.epub') as archive:
+            archive.extractall(dest)
+        cases += [('folio-design', ROOT/'design/folio.html')]
+        cases += [('folio-'+profile, folio/f'shore-and-space-{profile}.html') for profile in ['portrait','landscape','a4']]
+        cases += [('folio-epub-'+chapter, dest/'EPUB'/f'ch-{chapter}.xhtml') for chapter in ['03','04','09','10','12','14','16','20','22','23']]
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True, args=['--no-sandbox'])
         for label, path in cases:

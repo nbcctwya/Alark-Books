@@ -106,3 +106,20 @@ hr { border: 0; border-top: .5pt solid var(--line); margin: 6mm 0; }
 .landscape .photo-essay > blockquote { width: 52mm; flex-shrink: 0; margin: 7mm 0; font-size: 11pt; }
 .landscape .photo-essay > figure { width: 128mm; flex-shrink: 0; margin: 0; }
 .landscape .photo-essay img { width: 128mm; max-height: 88mm; }
+
+/* Optional long-read proof: preserve type size while tightening paragraph rhythm. */
+@media print {
+ body .reading-dense .prose,body .reading-dense .prose .text-flow { line-height: 1.65; }
+ body .reading-dense .prose > p,body .reading-dense .prose .text-flow > p { margin-bottom: 1mm; }
+ body .reading-dense .prose > p:first-child { font-size: inherit; line-height: inherit; }
+}
+
+/* Longer contents lists should fit the larger sheet without a stray last item. */
+@media print {
+ body.a4 .contents { padding-top: 5mm; }
+ body.a4 .contents h1 { margin-top: 3mm; margin-bottom: 7mm; }
+ body.a4 .contents li { padding-top: 2.2mm; padding-bottom: 2.2mm; }
+ body.a4 .chapter-heading { padding-top: 3mm; padding-bottom: 3mm; margin-bottom: 4mm; }
+ body.a4 .chapter-brief { margin-bottom: 4mm; }
+ body.editorial.a4 .prose { line-height: 1.75; }
+}

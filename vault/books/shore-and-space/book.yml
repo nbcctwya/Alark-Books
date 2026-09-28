@@ -1,0 +1,42 @@
+title: 岸与间
+subtitle: 从海岸到色彩，二十幅影像的观看练习
+series: ALARK FOLIO
+volume: '06'
+author: Alark
+language: zh-CN
+identifier: urn:uuid:1da3b5f8-70f6-4b52-9736-ec85c8167d7b
+date: 2026-09
+edition: 影像扩篇版 · 0.2
+design: folio
+theme: forest
+description: 从低饱和海岸走向黑白建筑、浓色静物与霓虹夜景，再进入森林、粉彩盐田与抽象影像。二十幅图像与二十四段观看，在完整画幅、双图、组照和文字之间，寻找不同色彩的节奏。
+note: 本书图像均由 AI 生成，为虚构场景的摄影风格样例；并非真实拍摄记录。图像在对照页中有意重复出现。
+rights: © 2026 Alark。文字与设计为项目原创样例。图像来源及生成提示词随项目保存。
+cover_image: assets/shore-and-space/shore.png
+cover_alt: 晨光中的海岸，堤线从近处延伸到雾中
+cover_credit: 影像：内置 imagegen 生成；编选与文字：Alark。
+chapters:
+- 01-horizon.md
+- 02-sand.md
+- 03-descent.md
+- 04-windows.md
+- 05-door.md
+- 06-tide.md
+- 07-reflection.md
+- 08-rain.md
+- 09-between.md
+- 10-echoes.md
+- 11-blue-hour.md
+- 13-monochrome.md
+- 14-spiral.md
+- 15-vermilion.md
+- 16-oranges.md
+- 17-neon.md
+- 18-pool.md
+- 19-forest.md
+- 20-salt.md
+- 21-motion.md
+- 22-blueprint.md
+- 23-palette.md
+- 24-color-notes.md
+- 12-afterword.md

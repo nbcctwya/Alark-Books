@@ -62,7 +62,7 @@
 .investment.a4 .studio-volume { font-size: 38pt; right: 21mm; top: 47mm; }
 
 /* Keep compact comparison tables together on the page. */
-.investment table { break-inside: avoid; }
+.investment table.compact-table { break-inside: avoid; }
 
 .investment .prose figure { margin: 5mm 0; }
 .investment .footnotes { margin-top: 2mm; line-height: 1.5; }

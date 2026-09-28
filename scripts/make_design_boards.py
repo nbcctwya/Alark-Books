@@ -6,9 +6,11 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def main():
     font=ImageFont.truetype(str(ROOT/'design/fonts/NotoSansSC-Regular.ttf'),24)
-    samples=[('business-architecture',[0,3,5,7]),('through-volatility',[0,5,6,9])]
-    for slug,pages in samples:
+    samples=[('business-architecture',['找到付费的理由','把交付变成流程','看清一单的结构']),('through-volatility',['读懂一次回撤','费用怎样进入时间','怎样阅读一份投资材料'])]
+    for slug,titles in samples:
         doc=pymupdf.open(ROOT/f'exports/{slug}/{slug}-portrait.pdf')
+        toc={title:page-1 for _,title,page in doc.get_toc()}
+        pages=[0]+[toc[title] for title in titles]
         board=Image.new('RGB',(1680,650),'#e8e4dc')
         draw=ImageDraw.Draw(board)
         for i,index in enumerate(pages):

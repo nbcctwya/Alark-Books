@@ -1,0 +1,43 @@
+/* Editorial house style: paper, photographic plates and restrained navigation. */
+.editorial .contents { padding-top: 10mm; }
+.editorial .contents h1 { margin-bottom: 10mm; }
+.editorial .contents li { border-top: .4pt solid var(--line); padding: 4mm 0; }
+.editorial .contents a { font-size: 12pt; }
+.editorial .contents-subtitle { margin: 2mm 8mm 0 11mm; font: 7.5pt/1.7 ArkSerif; color: var(--muted); }
+.editorial .chapter-heading { position: relative; padding: 6mm 0 5mm 14mm; border-top: .5pt solid var(--ink); margin-bottom: 6mm; }
+.editorial .chapter-number { position: absolute; top: 8mm; left: 0; font: 10pt/1.5 ArkSans; letter-spacing: .05em; }
+.editorial .chapter-heading h1 { font-size: 23pt; margin-bottom: 3mm; }
+.editorial .chapter-subtitle { font-size: 8.5pt; }
+.editorial .prose { line-height: 1.85; }
+.editorial h2 { font-size: 13pt; margin-top: 6mm; }
+.editorial .prose > p,.editorial .text-flow > p { margin-bottom: 1mm; }
+.editorial figcaption { font-size: 7pt; line-height: 1.7; padding-top: 2.5mm; }
+.editorial table.compact-table { break-inside: avoid; }
+.editorial th,.editorial td { padding: 1.8mm 2mm; }
+.editorial .record-table { font-size: 8pt; }
+.editorial .callout { margin: 4mm 0; padding: 3mm 0; }
+.editorial .footnotes { margin-top: 3mm; line-height: 1.6; }
+.editorial .photo-essay { break-inside: avoid; margin: 6mm 0; }
+.editorial .photo-essay > blockquote { margin: 0 6mm 5mm; font-size: 12pt; }
+.editorial .photo-essay > figure { margin: 0; }
+.editorial.portrait .photo-essay img { width: 100%; max-height: 82mm; }
+.editorial.portrait .figure-tall { width: 35mm; margin-left: 5mm; }
+.editorial.portrait .figure-tall img { max-height: 78mm; }
+.editorial.landscape .colophon { padding-top: 10mm; }
+.editorial.landscape .colophon dl { margin-top: 10mm; }
+.editorial.landscape .contents { padding-top: 0; }
+.editorial.landscape .contents h1 { margin-bottom: 6mm; }
+.editorial.landscape .contents li { padding: 2.5mm 0; }
+.editorial.landscape .contents-subtitle { margin-top: 1mm; }
+.editorial.landscape .chapter-heading { padding-top: 3mm; padding-bottom: 3mm; margin-bottom: 4mm; }
+.editorial.landscape .chapter-number { top: 5mm; }
+.editorial.landscape .text-flow { line-height: 1.8; }
+.editorial.landscape .photo-essay { display: flex; align-items: center; gap: 10mm; }
+.editorial.landscape .photo-essay > blockquote { width: 50mm; margin: 0; font-size: 12pt; }
+.editorial.landscape .photo-essay > figure { width: 130mm; margin: 0; }
+.editorial.landscape .photo-essay img { width: 130mm; max-height: 88mm; }
+.editorial.a4 .photo-essay { max-width: 153mm; margin-left: auto; margin-right: auto; }
+.editorial.a4 .photo-essay img { max-height: 112mm; }
+.editorial .footnotes-sep { margin: 3mm 0 2mm; break-after: avoid; }
+.editorial.landscape .prose > figure:not(.figure-tall) img { max-height: 66mm; }
+.editorial.landscape .text-flow:has(.footnotes) { break-inside: avoid; }

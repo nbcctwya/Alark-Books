@@ -6,12 +6,20 @@ volume: '02'
 author: Alark
 language: zh-CN
 identifier: urn:uuid:3384520e-de6e-4d3d-a24b-2d7aa15fba42
-date: '2026-09'
-edition: 纸本实验版 · 0.2
+date: 2026-09
+edition: 长篇排版实验版 · 0.4
 theme: forest
 description: 用安静的文字记录日常观察，在行动与思考之间找到自己的节奏。
-note: 独立短篇样书，用于验证少章节、纯文字与不同主题的排版。
+note: 原创虚构随笔与编辑练习，用于检验长篇正文、摄影插页和不同阅读节奏；不作为作者真实经历的记录。
 rights: © 2026 Alark。项目原创排版样例，可随本项目使用与修改。
 chapters:
-  - 01-space.md
-  - 02-return.md
+- 01-space.md
+- 02-return.md
+- 03-morning.md
+- 04-reading.md
+- 05-walking.md
+- 06-unfinished.md
+- 07-friend.md
+- 08-worktable.md
+- 09-seasons.md
+- 10-letter.md

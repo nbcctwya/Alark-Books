@@ -1,0 +1,35 @@
+@media screen {
+ html { background:#e6e6e2; }
+ body.folio { max-width:1000px; margin:24px auto; padding:40px; }
+ .folio-cover { max-width:100%; margin:0 auto 60px; height:680px; }
+ .folio-cover > img { top:220px; left:0; width:100%; height:400px; }
+ .folio-cover-foot { left:0; right:0; bottom:10px; }
+ .folio-about,.folio-contents,.folio-chapter,.folio-end { margin:0 0 70px; padding-top:20px; }
+ .folio-contents a::after { content:none; }
+ .folio .folio-prose figure img { width:auto; height:auto; max-height:580px; }
+ .folio .folio-layout-contact .folio-gallery img { width:100%; height:240px; max-height:none; }
+ .folio-layout-bleed { height:auto; padding-top:0; }
+ .folio .folio-layout-bleed .folio-prose img { width:100%; height:680px; max-height:none; }
+ .folio-layout-bleed figcaption { bottom:20px; }
+ .folio-layout-bleed .folio-heading { bottom:65px; }
+ .folio.landscape .folio-cover-type { width:auto; margin:0; }
+ .folio.landscape .folio-cover > img { left:0; top:220px; width:100%; height:400px; }
+ .folio-prose > p { max-width:none; }
+}
+@media screen and (max-width:600px) {
+ body.folio { margin:0; padding:24px; font-size:15px; }
+ .folio-cover { height:560px; padding:16px 0; }
+ .folio-cover-type h1,.folio.landscape .folio-cover-type h1,.folio.a4 .folio-cover-type h1 { font-size:40px; }
+ .folio-cover > img,.folio.landscape .folio-cover > img { top:180px; height:320px; }
+ .folio-cover-foot { font-size:9px; flex-wrap:wrap; }
+ .folio-gallery { display:block; }
+ .folio-gallery figure { margin-bottom:25px; }
+ .folio .folio-prose figure img,.folio .folio-layout-contact .folio-gallery img { height:auto; max-height:none; }
+ .folio-layout-essay .folio-prose figure { float:none; width:100%; margin:24px 0; }
+ .folio-prose > p { font-size:15px; }
+ .folio.landscape .folio-contents ol { columns:auto; }
+ .folio-layout-bleed .folio-heading { left:12px; right:12px; bottom:75px; }
+ .folio .folio-layout-bleed .folio-prose img { height:540px; }
+ .folio-layout-bleed figcaption { left:12px; right:12px; }
+ dd { overflow-wrap:anywhere; }
+}

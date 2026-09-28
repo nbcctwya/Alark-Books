@@ -1,6 +1,6 @@
 # SPECTACLE / 欲望制造
 
-第三套独立设计语言：**奢侈品广告 × 高冲击编辑设计**。样书位于 `vault/books/desire-manufacture`，包含四章：先被看见、让人记住、值得渴望、兑现承诺。
+第三套独立设计语言：**奢侈品广告 × 高冲击编辑设计**。样书位于 `vault/books/desire-manufacture`，已扩充为十章：在先被看见、让人记住、值得渴望、兑现承诺之外，增加定位、图像、文案、接触点、发布日志与发布后复核。
 
 [视觉方案](spectacle.html) · [作品书架](../exports/index.html)
 

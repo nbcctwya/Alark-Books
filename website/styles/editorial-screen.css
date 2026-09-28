@@ -1,0 +1,20 @@
+@media screen {
+ .editorial .contents a::after { content: none; }
+ .editorial .photo-essay { margin: 36px 0; }
+ .editorial .chapter { margin-top: 30px; }
+ .editorial .chapter-heading { padding-top: 22px; }
+ .editorial .chapter-number { top: 28px; }
+}
+@media screen and (max-width: 800px) {
+ .editorial.landscape .photo-essay { display: block; }
+ .editorial.landscape .photo-essay > blockquote,.editorial.landscape .photo-essay > figure { width: 100%; margin: 24px 0; }
+ .editorial.landscape .photo-essay img { width: 100%; max-height: none; }
+}
+@media screen and (max-width: 600px) {
+ .editorial.portrait .figure-tall { float: none; width: 100%; margin: 24px 0; }
+ .editorial .chapter-heading h1 { font-size: 26px; }
+ .editorial .chapter-subtitle { font-size: 13px; }
+ .editorial .contents-subtitle { font-size: 12px; }
+ .editorial .chapter-number { font-size: 12px; }
+ .editorial figcaption { font-size: 12px; }
+}

@@ -62,4 +62,4 @@
 .business.a4 .studio-volume { font-size: 56pt; top: 32mm; }
 
 /* Keep compact comparison tables together on the page. */
-.business table { break-inside: avoid; }
+.business table.compact-table { break-inside: avoid; }
