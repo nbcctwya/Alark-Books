@@ -18,3 +18,15 @@
  .editorial .chapter-number { font-size: 12px; }
  .editorial figcaption { font-size: 12px; }
 }
+
+@media screen and (max-width:600px) {
+ .editorial .chapter-heading { padding-left:48px; }
+ .editorial .chapter-number { font-size:26px; top:26px; }
+ .editorial .cover.photographic .cover-type h1,.editorial.a4 .cover.photographic .cover-type h1 { font-size:40px; }
+ .editorial .cover-deck { font-size:9px; }
+}
+@media screen and (max-width:600px) {
+ .editorial.a4 .cover-photo { left:0; right:0; width:100%; height:200px; bottom:70px; }
+ .editorial.a4 .prose img { max-width:100%; }
+ .editorial.a4 .cover.typographic h1 { font-size:34px; }
+}

@@ -2,7 +2,7 @@
 from pathlib import Path
 import pymupdf
 from PIL import Image
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'exports/visual-review'
 
 def spread(source, indices, target):

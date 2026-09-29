@@ -19,13 +19,13 @@
 
 ## 查看与复现
 
-本地打开 [实际书页预览](editorial-refinement.html)。预览图来自真实 PDF，没有另行绘制页面。
+本地打开 [实际书页预览](../previews/editorial-refinement.html)。预览图来自真实 PDF，没有另行绘制页面。
 
 ```bash
 conda activate webproj
 python scripts/publish.py build layout-lab --profile all --epubcheck
 python scripts/publish.py build field-notes --profile all --epubcheck
-python scripts/make_editorial_review.py
+python scripts/previews/make_editorial_review.py
 ```
 
 此前 PDF 的副本仅保存在本地 `exports/visual-review/editorial-before/`，用于本轮对比，不属于可复建的原稿。预览脚本没有旧 PDF 时仍可生成新版对页。
@@ -33,3 +33,22 @@ python scripts/make_editorial_review.py
 ## 后续方向
 
 现有书稿仍含排版压力测试章节；未通过修改内容制造更好的页面效果。下一步真正值得投入的是长篇正文的编辑、更多具有叙事作用的摄影、案例与访谈等内容类型，再据此扩展版式。正式出版前仍需逐页人工检查，自动分页不等于完成编辑设计。
+
+
+## 第二轮纸本打磨 · 2026-09-28
+
+- A4 细长插图改为 43 mm 侧栏，正文环绕，避免窄图占据整行并挤出零碎尾页。
+- A4 表格上下内边距调整为 1.5 mm、小节上间距为 5 mm；保留正文字号与行距。
+- 短章末注与相邻短段落或提示合组，降低注释独占一页的情况。合组总文本不超过 300 字符；长注释继续自然分页。仅改变渲染副本，原稿、链接与顺序保持不变。
+- 《内容的复利》竖版 / 横版 / A4 为 **42 / 42 / 25 页**，A4 原为 28 页；《留一点时间思考》仍为 **38 / 36 / 24 页**。
+
+运行 `python scripts/previews/review_refinement.py` 后打开 [修改前后实际书页](../../exports/refinement-review/index.html)，查看侧栏、章末与注释三个案例。部分长篇章节仍存在较短尾页，后续应结合真实书稿编辑逐页处理，不为凑满页面删改原文。
+
+
+## 审美精修 · 2026-09-29
+
+《内容的复利》保留自然纸白、宋体与海岸摄影，用更明确的尺度关系建立书刊气质：摄影封面书名放大、拉开字距，复用原有 eyebrow 字段作为细小的英文引导行；章号改为暖灰褐宋体数字，与章名共用顶线。小节后的首段取消缩进，后续段落保留首行缩进。旁注改为单细线，表格行线退后，让正文层次更清楚。
+
+三种 PDF 页数仍为 42 / 42 / 25，正文字号保持不变。共用主题的《留一点时间思考》同步重建为 38 / 35 / 24 页。EPUB 同步首段、旁注和表格规则；手机端补齐 A4 图片与封面适配。
+
+`python scripts/previews/review_refinement.py --focus aesthetics` 生成 [审美精修对照](../../exports/aesthetic-review/index.html)，修改前快照保存在该目录的 `before/`，不入 Git。模板规则不按书名或固定章名硬编码，其他 editorial 书籍可复用。

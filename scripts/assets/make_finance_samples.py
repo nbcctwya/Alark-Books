@@ -6,7 +6,7 @@ from html import escape
 import json
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 FONT=TTFont(ROOT/'design/fonts/NotoSansSC-Regular.ttf')
 GLYPHS=FONT.getGlyphSet(); CMAP=FONT.getBestCmap(); UPM=FONT['head'].unitsPerEm
 BLUE='#1545ba'; ORANGE='#e57539'; GREEN='#25483e'; GOLD='#a67d3f'; PAPER='#f4f0e6'
@@ -78,5 +78,5 @@ def generate():
     save(i/'fee-drag.svg',900,420,'费用演示，20年末值分别为'+','.join(f'{x:.2f}' for x in ends),s)
     (i/'data.json').write_text(json.dumps(dict(path=path,drawdowns=drawdown,fees=fees,ending_values=ends,formula='100 * (1.04 * (1-fee)) ** 20'),indent=2),encoding='utf-8')
     for dest in [b,i]:
-        (dest/'SOURCE.md').write_text('本目录 SVG 由 scripts/make_finance_samples.py 原创生成。全部数字均为虚构演示或明确假设下的数学计算，不使用实际市场或公司数据。中文转为 Noto Sans SC（OFL）字形轮廓，跨 PDF/EPUB 渲染一致。投资演示输入与输出保存在 data.json。\n',encoding='utf-8')
+        (dest/'SOURCE.md').write_text('本目录 SVG 由 scripts/assets/make_finance_samples.py 原创生成。全部数字均为虚构演示或明确假设下的数学计算，不使用实际市场或公司数据。中文转为 Noto Sans SC（OFL）字形轮廓，跨 PDF/EPUB 渲染一致。投资演示输入与输出保存在 data.json。\n',encoding='utf-8')
 if __name__=='__main__':generate()

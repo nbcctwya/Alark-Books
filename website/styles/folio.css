@@ -66,3 +66,14 @@ body.folio { font-size:9pt; line-height:1.8; }
  .folio.landscape .folio-layout-plate .folio-prose::after { content:''; display:block; clear:both; }
  .folio.landscape .folio-layout-bleed .figure-tall img { object-position:center top; }
 }
+
+@media print {
+ /* Mixed orientations share an image baseline and a caption baseline.
+    Contain keeps the entire photograph; white space stays above the image. */
+ .folio { --pair-height:80mm; }
+ .folio.landscape { --pair-height:76mm; }
+ .folio.a4 { --pair-height:118mm; }
+ .folio .folio-layout-pair .folio-gallery img {
+  width:100%; height:var(--pair-height); max-height:none; object-fit:contain; object-position:center bottom;
+ }
+}

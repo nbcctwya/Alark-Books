@@ -12,9 +12,10 @@ def main():
         archive.extractall(OUT/'epub-unpacked')
     cases = [
         ('bookshelf', ROOT/'exports/index.html'),
-        ('design', ROOT/'design/visual-system.html'),
+        ('design', ROOT/'design/previews/visual-system.html'),
         ('reading', ROOT/'exports/layout-lab/layout-lab-portrait.html'),
         ('landscape-reading', ROOT/'exports/layout-lab/layout-lab-landscape.html'),
+        ('a4-reading', ROOT/'exports/layout-lab/layout-lab-a4.html'),
         ('epub-chapter', OUT/'epub-unpacked/EPUB/ch-02.xhtml'),
     ]
     spectacle = ROOT/'exports/desire-manufacture'
@@ -22,9 +23,10 @@ def main():
         with zipfile.ZipFile(spectacle/'desire-manufacture.epub') as archive:
             archive.extractall(OUT/'spectacle-epub-unpacked')
         cases += [
-            ('spectacle-design', ROOT/'design/spectacle.html'),
+            ('spectacle-design', ROOT/'design/previews/spectacle.html'),
             ('spectacle', spectacle/'desire-manufacture-portrait.html'),
             ('spectacle-landscape', spectacle/'desire-manufacture-landscape.html'),
+            ('spectacle-a4', spectacle/'desire-manufacture-a4.html'),
             ('spectacle-epub', OUT/'spectacle-epub-unpacked/EPUB/ch-01.xhtml'),
         ]
     for slug in ['business-architecture', 'through-volatility']:
@@ -34,8 +36,8 @@ def main():
         cases += [(slug, folder/f'{slug}-portrait.html'),
                   (slug+'-landscape', folder/f'{slug}-landscape.html'),
                   (slug+'-epub', OUT/f'{slug}-epub/EPUB/ch-02.xhtml')]
-    cases.append(('five-designs', ROOT/'design/five-designs.html'))
-    cases += [('editorial-refinement', ROOT/'design/editorial-refinement.html'), ('field-notes', ROOT/'exports/field-notes/field-notes-portrait.html')]
+    cases.append(('five-designs', ROOT/'design/previews/collection.html'))
+    cases += [('editorial-refinement', ROOT/'design/previews/editorial-refinement.html'), ('field-notes', ROOT/'exports/field-notes/field-notes-portrait.html')]
     cases.append(('longform-review', ROOT/'exports/longform-review/index.html'))
     for slug in ['layout-lab','field-notes','desire-manufacture','business-architecture','through-volatility']:
         dest=OUT/(slug+'-longform-epub')
@@ -49,7 +51,7 @@ def main():
         dest=OUT/'folio-epub'
         with zipfile.ZipFile(folio/'shore-and-space.epub') as archive:
             archive.extractall(dest)
-        cases += [('folio-design', ROOT/'design/folio.html')]
+        cases += [('folio-design', ROOT/'design/previews/folio.html')]
         cases += [('folio-'+profile, folio/f'shore-and-space-{profile}.html') for profile in ['portrait','landscape','a4']]
         cases += [('folio-epub-'+chapter, dest/'EPUB'/f'ch-{chapter}.xhtml') for chapter in ['03','04','09','10','12','14','16','20','22','23']]
     with sync_playwright() as p:
@@ -61,6 +63,8 @@ def main():
                 page.evaluate('document.fonts.ready')
                 metrics=page.evaluate('''() => ({width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
                     brokenImages: [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i=>i.src),
+                    collisions: [...document.querySelectorAll('.campaign-opener')].filter(e =>
+                        e.querySelector('.opener-statement') && e.querySelector('.opener-title').getBoundingClientRect().bottom > e.querySelector('.opener-statement').getBoundingClientRect().top).map(e=>e.id),
                     fonts: [...document.fonts].map(f=>({family:f.family,status:f.status}))})''')
                 page.screenshot(path=str(OUT/f'{label}-{width}.png'), full_page=label in ['bookshelf','design'])
                 metrics.update(page=label)
@@ -68,7 +72,7 @@ def main():
                 page.close()
         browser.close()
     (OUT/'browser-checks.json').write_text(json.dumps(reports,ensure_ascii=False,indent=2),encoding='utf-8')
-    errors=[r for r in reports if r['scrollWidth']>r['width'] or r['brokenImages'] or any(f['status']=='error' for f in r['fonts'])]
+    errors=[r for r in reports if r['scrollWidth']>r['width'] or r['brokenImages'] or r['collisions'] or any(f['status']=='error' for f in r['fonts'])]
     print(json.dumps({'cases':len(reports),'errors':errors},ensure_ascii=False,indent=2))
     return bool(errors)
 if __name__=='__main__': raise SystemExit(main())

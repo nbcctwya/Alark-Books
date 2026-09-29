@@ -6,9 +6,9 @@
 
 | 样书 | 章节 | 竖版：扩充前 → 现在 | 横版 | A4 |
 | --- | --- | --- | --- | --- |
-| 内容的复利 | 11 | 18 → 42 | 42 | 28 |
-| 留一点时间思考 | 10 | 8 → 38 | 36 | 24 |
-| 欲望制造 | 10 | 19 → 50 | 51 | 36 |
+| 内容的复利 | 11 | 18 → 42 | 42 | 25 |
+| 留一点时间思考 | 10 | 8 → 38 | 35 | 24 |
+| 欲望制造 | 10 | 19 → 40 | 41 | 29 |
 | 生意的结构 | 10 | 12 → 37 | 42 | 26 |
 | 穿越波动 | 10 | 13 → 40 | 41 | 29 |
 
@@ -47,11 +47,11 @@
 ```bash
 conda activate webproj
 python scripts/publish.py build --all --profile all --epubcheck
-python scripts/review_longform.py
-python scripts/make_design_boards.py
-python scripts/make_editorial_review.py
+python scripts/previews/review_longform.py
+python scripts/previews/make_design_boards.py
+python scripts/previews/make_editorial_review.py
 ```
 
-原稿直接在各书 Markdown 文件中维护。`scripts/make_longform_assets.py` 只重建新素材目录，不生成或覆盖书稿；普通构建无需运行它。素材数值记录位于 `vault/assets/longform-lab/data.json`。
+原稿直接在各书 Markdown 文件中维护。`scripts/assets/make_longform_assets.py` 只重建新素材目录，不生成或覆盖书稿；普通构建无需运行它。素材数值记录位于 `vault/assets/longform-lab/data.json`。
 
 预览与检查报告属于 `exports` 本地产物，不提交 Git。正式出版仍需人工编辑与逐页校对；这些是用于比较设计、检验长篇排版的样书。

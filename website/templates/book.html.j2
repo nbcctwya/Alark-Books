@@ -6,7 +6,7 @@
 <body class="editorial {{ profile_name }}">
 <section class="cover {{ 'photographic' if book.cover_asset else 'typographic' }}" aria-label="封面">
 <div class="cover-top"><span>{{ brand.imprint }}</span><span>{{ book.volume | default('01') }} · {{ book.date | default('') }}</span></div>
-<div class="cover-type"><p class="eyebrow">{{ book.series | default('ALARK LIBRARY') }}</p><h1>{{ book.title }}</h1><p class="cover-subtitle">{{ book.subtitle | default('') }}</p><p class="cover-author">{{ book.author }} 著</p></div>
+<div class="cover-type"><p class="eyebrow">{{ book.series | default('ALARK LIBRARY') }}</p><h1>{{ book.title }}</h1><p class="cover-subtitle">{{ book.subtitle | default('') }}</p>{% if book.eyebrow %}<p class="cover-deck">{{ book.eyebrow }}</p>{% endif %}<p class="cover-author">{{ book.author }} 著</p></div>
 {% if book.cover_asset %}<figure class="cover-photo"><img src="{{ book.cover_asset }}" alt="{{ book.cover_alt | default('封面摄影作品') }}"></figure>{% else %}<div class="cover-imprint"><span>{{ brand.name }}</span><p>{{ brand.tagline }}</p></div>{% endif %}
 <div class="cover-bottom"><span>{{ brand.name }} / {{ book.edition | default('第一版') }}</span><span>{{ book.series | default('ALARK LIBRARY') }}</span></div>
 </section>

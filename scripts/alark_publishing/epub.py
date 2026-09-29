@@ -116,7 +116,7 @@ def write_epub(manuscript, metadata, stage, output):
             section.set('class', 'folio-layout-' + chapter['photo_layout'])
         etree.SubElement(section, 'p', {'class': 'eyebrow'}).text = 'CHAPTER ' + chapter['number']
         etree.SubElement(section, 'h1').text = chapter['title']
-        if chapter['subtitle']:
+        if chapter['subtitle'] and not (metadata.get('design') == 'spectacle' and chapter['subtitle'] == chapter['statement']):
             etree.SubElement(section, 'p').text = chapter['subtitle']
         if metadata.get('design') == 'spectacle' and chapter['statement']:
             etree.SubElement(section, 'p', {'class': 'campaign-epub-statement'}).text = chapter['statement']
@@ -142,6 +142,8 @@ def write_epub(manuscript, metadata, stage, output):
     package = etree.Element(f'{{{OPF}}}package', nsmap={None: OPF, 'dc': DC}, attrib={'version': '3.0', 'unique-identifier': 'book-id', 'prefix': 'rendition: http://www.idpf.org/vocab/rendition/#'})
     meta = etree.SubElement(package, f'{{{OPF}}}metadata')
     for tag, value in [('identifier', metadata['identifier']), ('title', metadata['title']), ('language', language), ('creator', metadata['author']), ('publisher', metadata['publisher']), ('rights', metadata.get('rights', '版权所有。')), ('description', metadata.get('description', metadata.get('subtitle', '')))]:
+        if tag in {'creator', 'publisher', 'rights', 'description'} and not str(value).strip():
+            continue
         item = etree.SubElement(meta, f'{{{DC}}}{tag}')
         item.text = str(value)
         if tag == 'identifier':

@@ -2,7 +2,7 @@
 from pathlib import Path
 import pymupdf
 from PIL import Image, ImageDraw, ImageFont
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 
 def main():
     font=ImageFont.truetype(str(ROOT/'design/fonts/NotoSansSC-Regular.ttf'),24)
@@ -29,7 +29,7 @@ def main():
         im.thumbnail((320,470))
         x=20+i*360
         board.paste(im,(x,20))
-        label=['摄影书刊','极简随笔','奢华传播','商业蓝图','投资年鉴'][i]
+        label=['摄影书刊','极简随笔','奢华影像','商业蓝图','投资年鉴'][i]
         draw.text((x,510),f'0{i+1} / {label}',font=font,fill='#575249')
     out=ROOT/'exports/visual-review'
     out.mkdir(exist_ok=True)

@@ -5,8 +5,13 @@
 ```text
 Alark-Books/
 ├── vault/                       Obsidian 原稿与素材，保留原有组织
-├── design/                      视觉方案、HTML 原型、品牌标志与字体
-├── docs/                        使用规范、系统说明、验证记录
+├── design/
+│   ├── briefs/                  视觉方案与设计说明
+│   ├── previews/                HTML 设计预览
+│   ├── brand/                   品牌标志
+│   └── fonts/                   字体与授权
+├── docs/                        使用规范与系统说明，README.md 为索引
+│   └── history/                 历史复查与验证记录
 ├── website/
 │   ├── templates/               PDF / HTML 模板
 │   └── styles/                  PDF / HTML / EPUB 样式
@@ -15,7 +20,9 @@ Alark-Books/
 │   ├── check_epub.py            EPUBCheck 命令
 │   ├── alark_publishing/        内部出版引擎
 │   ├── tests/                   自动测试
-│   └── …                       字体、素材、预览和浏览器工具
+│   ├── previews/                实际样张与设计对照生成器
+│   ├── assets/                  样书素材生成器（会写入 vault/assets）
+│   └── …                       字体下载和浏览器检查入口
 ├── exports/                     可重新生成的成品与报告，不提交 Git
 ├── publishing.yml              全局品牌与页面尺寸
 ├── environment.yml             Conda 环境与原生库
@@ -42,7 +49,7 @@ Alark-Books/
 
 ## 添加设计
 
-1. 在 `design/` 写下视觉方案，并更新设计索引。
+1. 在 `design/briefs/` 写下视觉方案，并更新设计索引。
 2. 在 `website/styles/` 添加纸张、屏幕和 EPUB 样式；有需要时新增模板。
 3. 在 `scripts/alark_publishing/themes.py` 登记资源与横版分栏策略。
 4. 若有新的正文结构，如宣言页，在对应模板与 EPUB 组装逻辑中同时实现。
@@ -59,4 +66,4 @@ Alark-Books/
 本次组织调整保留 `website` 名称，避免仅为改名迁移所有资源引用。样式文件数量目前可直接浏览，继续按主题前缀分组；后续主题显著增加时再拆分主题子目录。
 
 
-当前整体复核与后续重点见 [项目复核](project-review.md)。
+当前整体复核与后续重点见 [项目复核](history/project-review.md)。

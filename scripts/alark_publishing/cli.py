@@ -16,8 +16,7 @@ from urllib.parse import unquote, urlsplit
 import pymupdf as fitz
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
-from weasyprint import HTML, default_url_fetcher
-from .manuscript import Manuscript, BookError, resolve_file
+from .manuscript import Manuscript, BookError, resolve_file, text_fields
 from .paths import ROOT, VAULT, STYLES, TEMPLATES
 from .themes import THEMES
 from .epub import write_epub
@@ -26,6 +25,12 @@ from .preflight import check_pdf, check_epub, contact_sheet
 
 def config():
     return yaml.safe_load((ROOT / 'publishing.yml').read_text(encoding='utf-8'))
+
+
+def render_html(path, fetcher):
+    # List, init and HTML-only builds do not need the native PDF renderer.
+    from weasyprint import HTML
+    return HTML(filename=path, url_fetcher=fetcher).render()
 
 
 def safe_book(name):
@@ -116,6 +121,16 @@ def editorial_chapters(chapters):
                 root.insert(root.index(previous), plate)
                 plate.append(previous)
                 plate.append(figure)
+        # Keep brief endnotes with the preceding short text, without binding
+        # long notes or illustrations into an oversized unbreakable block.
+        for notes in list(root.findall("section[@class='footnotes']")):
+            separator = notes.getprevious()
+            previous = separator.getprevious() if separator is not None and separator.get('class') == 'footnotes-sep' else None
+            if previous is not None and previous.tag in {'p', 'aside'} and len(previous.text_content()) + len(notes.text_content()) <= 300:
+                tail = etree.Element('div', {'class': 'chapter-notes'})
+                root.insert(root.index(previous), tail)
+                for element in [previous, separator, notes]:
+                    tail.append(element)
         item['document'] = root
         item['html'] = ''.join(html.tostring(e, encoding='unicode') for e in root)
         result.append(item)
@@ -173,6 +188,7 @@ def build_one(name, profiles, formats, formal_check=False):
         for filename, path in manuscript.assets.items():
             shutil.copy(path, stage / 'assets' / filename)
         def fetch(url, *args, **kwargs):
+            from weasyprint import default_url_fetcher
             parts = urlsplit(url)
             path = Path(unquote(parts.path)).resolve()
             if parts.scheme != 'file' or not path.is_relative_to(stage.resolve()):
@@ -198,7 +214,7 @@ def build_one(name, profiles, formats, formal_check=False):
                 need_render = 'pdf' in formats or ('epub' in formats and profile_name == profiles[0])
                 if need_render:
                     print(f'排版 {name} / {profile_name}', flush=True)
-                    document = HTML(filename=html_path, url_fetcher=fetch).render()
+                    document = render_html(html_path, fetch)
                     layout_errors = []
                     for page_number, page in enumerate(document.pages, 1):
                         pagebox = page._page_box
@@ -221,15 +237,22 @@ def build_one(name, profiles, formats, formal_check=False):
                 if 'html' not in formats:
                     html_path.unlink()
             if 'epub' in formats:
+                # These reports describe the previous EPUB bytes, not the new edition.
+                for report_name in ['epubcheck.json', f'{name}.epubcheck.json']:
+                    (stage / report_name).unlink(missing_ok=True)
                 output = stage / f'{name}.epub'
                 write_epub(manuscript, metadata, stage, output)
                 reports.append(check_epub(output))
+                reports[-1]['epubcheck_status'] = 'not_run'
                 if formal_check:
                     from .epubcheck import validate
                     code, result = validate(output, stage / 'epubcheck.json')
                     reports[-1]['epubcheck'] = result
                     if code:
+                        reports[-1]['epubcheck_status'] = 'failed'
                         reports[-1]['errors'].append(result)
+                    else:
+                        reports[-1]['epubcheck_status'] = 'passed'
         finally:
             logger.removeHandler(handler)
         failures = [error for report in reports for error in report['errors']]
@@ -241,6 +264,10 @@ def build_one(name, profiles, formats, formal_check=False):
         (stage / 'checks.json').write_text(json.dumps(report_data, ensure_ascii=False, indent=2), encoding='utf-8')
         destination.mkdir(exist_ok=True)
         shutil.copytree(stage, destination, dirs_exist_ok=True)
+        if 'epub' in formats:
+            for report_name in ['epubcheck.json', f'{name}.epubcheck.json']:
+                if not (stage / report_name).exists():
+                    (destination / report_name).unlink(missing_ok=True)
         (exports / f'{name}-failed-checks.json').unlink(missing_ok=True)
     for report in reports:
         print(f'  {report["file"]}: {report.get("page_count", report.get("chapters"))} {"页" if report["kind"] == "pdf" else "章"}，{len(report["warnings"])} 项提醒')
@@ -253,22 +280,33 @@ def build_library():
     for path in sorted((VAULT / 'books').glob('*/book.yml')):
         slug = path.parent.name
         folder = ROOT / 'exports' / slug
-        if not (folder / 'cover.png').exists():
-            continue
-        meta = yaml.safe_load(path.read_text(encoding='utf-8'))
         links = []
         for profile, label in [('portrait', '竖版 PDF'), ('landscape', '横版 PDF'), ('a4', 'A4 手册')]:
             filename = f'{slug}-{profile}.pdf'
             if (folder / filename).exists():
                 links.append(dict(href=f'{slug}/{filename}', label=label))
-        for filename, label in [(f'{slug}.epub', 'EPUB'), (f'{slug}-portrait.html', '在线阅读')]:
+        reading_links = [(f'{slug}.epub', 'EPUB')]
+        reading_links.extend((f'{slug}-{profile}.html', label) for profile, label in
+                             [('portrait', '竖版阅读'), ('landscape', '横版阅读'), ('a4', 'A4 阅读')])
+        for filename, label in reading_links:
             if (folder / filename).exists():
                 links.append(dict(href=f'{slug}/{filename}', label=label))
         if links:
-            books.append(dict(slug=slug, volume=str(meta.get('volume', '01')), title=meta['title'], subtitle=meta.get('subtitle',''), series=meta.get('series', 'ALARK LIBRARY'), primary=links[0]['href'], links=links))
+            # Draft configurations elsewhere must not prevent access to exports.
+            # Building a manuscript still uses the strict Manuscript validator.
+            try:
+                meta = yaml.safe_load(path.read_text(encoding='utf-8'))
+                if not isinstance(meta, dict):
+                    raise BookError('book.yml 必须是映射')
+                text_fields(meta, ['title', 'subtitle', 'series'], str(path), required=['title'])
+            except (BookError, OSError, yaml.YAMLError) as error:
+                print(f'提醒：{slug} 的书架信息暂不可用，使用目录名展示已有成品：{error}', file=sys.stderr)
+                meta = {'title': slug}
+            books.append(dict(slug=slug, has_cover=(folder / 'cover.png').is_file(), volume=str(meta.get('volume', '01')), title=meta['title'], subtitle=meta.get('subtitle',''), series=meta.get('series', 'ALARK LIBRARY'), primary=links[0]['href'], links=links))
     books.sort(key=lambda book: (book['volume'], book['slug']))
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=True)
-    (ROOT / 'exports/index.html').write_text(env.get_template('library.html.j2').render(brand=settings['brand'], books=books), encoding='utf-8')
+    (ROOT / 'exports').mkdir(exist_ok=True)
+    (ROOT / 'exports/index.html').write_text(env.get_template('library.html.j2').render(brand=settings['brand'], books=books, has_longform_review=(ROOT / 'exports/longform-review/index.html').is_file()), encoding='utf-8')
 
 
 def main():

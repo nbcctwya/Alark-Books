@@ -1,11 +1,13 @@
-/* Reflowable companion: reader-controlled font size, campaign identity preserved. */
-body { color: #111110; }
-h1 { font-family: ArkSans, sans-serif; font-size: 2.5em; line-height: 1.25; letter-spacing: -.04em; margin: 1em 0; }
-h2 { font-family: ArkSans, sans-serif; font-size: 1.4em; }
-section > p { text-indent: 0; margin-bottom: .8em; }
-.eyebrow { color: #b1261d; letter-spacing: .13em; font-size: .8em; }
-blockquote { font-size: 1.5em; padding-left: .5em; border-left: .15em solid #ee2d20; margin: 1.5em 0; }
-.callout { border-top: 2px solid #111110; border-bottom: 0; }
-.callout-title { color: #b1261d; }
-th { background: #111110; color: #f8f3e9; }
-.campaign-epub-statement { border-top: 3px solid #ee2d20; padding-top: .8em; font-size: 1.4em; }
+/* Flowing companion to the photographic journal. */
+body { color:#24201e; }
+h1 { font:normal 1.9em/1.5 ArkSerif,serif; letter-spacing:.02em; margin:1em 0; }
+h2 { font:normal 1.3em/1.7 ArkSerif,serif; margin-top:1.8em; }
+h3,.eyebrow,.callout-title { color:#982b37; }
+.eyebrow { font-size:.75em; letter-spacing:.14em; }
+section > p { line-height:1.85; margin-bottom:.5em; }
+section > h2 + p { text-indent:0; }
+blockquote { font-size:1.5em; line-height:1.7; color:#982b37; border-top:2px solid #982b37; padding:1em 0 0; margin:1.5em 0 1.5em 1em; }
+.callout { border-top:1px solid #ccc4b8; border-bottom:0; }
+th { background:transparent; color:inherit; border-bottom:1px solid #24201e; }
+.campaign-epub-statement { text-indent:0; font-size:1.15em; color:#982b37; }
+figcaption { font-size:.8em; line-height:1.75; }

@@ -43,7 +43,7 @@
 
 内容保留检查：商业书 112 个、投资书 95 个连续中文片段分别在三种 PDF 中全部找到，包含章节命题。八项转换回归测试通过，EPUB 资源检查已覆盖五本书。浏览器检查共 32 个桌面 / 手机组合，未发现页面横向溢出、图片加载失败或字体加载错误。ai-media 无差异。
 
-图表使用原创 SVG，数据为虚构案例或明确参数的数学演示，投资数据保存于 `vault/assets/through-volatility/data.json`。五款对照见 `design/five-designs.html`，实际 PDF 封面组合见 `exports/visual-review/five-designs.png`。新书内页组合见各自 `previews/design-board.png`，可用 `python scripts/make_design_boards.py` 重建。
+图表使用原创 SVG，数据为虚构案例或明确参数的数学演示，投资数据保存于 `vault/assets/through-volatility/data.json`。五款对照见 `design/previews/collection.html`，实际 PDF 封面组合见 `exports/visual-review/five-designs.png`。新书内页组合见各自 `previews/design-board.png`，可用 `python scripts/previews/make_design_boards.py` 重建。
 
 检查覆盖数字 PDF、EPUB 结构及浏览器显示，未替代实体阅读器测试或印厂打样。
 
@@ -66,7 +66,7 @@
 
 已查看新版横竖版全书缩略图、第一章真实对页和手机展示。修正了横版第二章脚注单独占页的问题。照片、引文、短表和长记录表均按原有阅读顺序保留。长表与章节收尾仍应在正式书稿定稿时人工复核。
 
-实际预览入口为 `design/editorial-refinement.html`，生成脚本为 `scripts/make_editorial_review.py`。本轮开始与结束的 vault 路径和 SHA-256 内容快照完全一致。
+实际预览入口为 `design/previews/editorial-refinement.html`，生成脚本为 `scripts/previews/make_editorial_review.py`。本轮开始与结束的 vault 路径和 SHA-256 内容快照完全一致。
 
 ## 五本长篇样书扩充 · 2026-09-28
 
@@ -107,9 +107,9 @@ WeasyPrint 无警告。原始图像长边 1536 像素，满版与大图页低于
 
 在三份 PDF 中逐一找到原稿的 126 个连续中文片段，并确认每份包含 17 次实际图片绘制（含封面与有意重复的图像）。该检查按标题、段落和图注分别取片段，不跨容器拼接文本。报告为 `exports/shore-and-space/previews/content-check.json`。
 
-实际查看三种版面的样张、竖版对页、手机阅读封面和 EPUB 双图章节。修正了固定图框把短文挤到下一页的问题；普通图片保留完整画幅，满版文字收在页底，手机与 EPUB 按图片顺序展开。预览生成脚本为 `scripts/make_folio_review.py`，入口 `design/folio.html`。
+实际查看三种版面的样张、竖版对页、手机阅读封面和 EPUB 双图章节。修正了固定图框把短文挤到下一页的问题；普通图片保留完整画幅，满版文字收在页底，手机与 EPUB 按图片顺序展开。预览生成脚本为 `scripts/previews/make_folio_review.py`，入口 `design/previews/folio.html`。
 
-对新书与新素材目录之外的 114 个原有 vault 文件复核 SHA-256，内容全部一致，包括 `ai-media` 与原有五本样书。README、书架与设计对照入口已扩展为六款设计；`design/five-designs.html` 保留旧文件名以兼容已有链接。
+对新书与新素材目录之外的 114 个原有 vault 文件复核 SHA-256，内容全部一致，包括 `ai-media` 与原有五本样书。README、书架与设计对照入口已扩展为六款设计；`design/previews/collection.html` 保留旧文件名以兼容已有链接。
 
 ## 《岸与间》色彩与风格扩篇 · 2026-09-28
 
@@ -119,7 +119,7 @@ WeasyPrint 无警告。原始图像长边 1536 像素，满版与大图页低于
 
 十五项回归测试通过。76 个浏览器页面与视口组合通过，新增覆盖黑白、满版朱红、霓虹、混合画幅双图、四色组照和色彩札记的 EPUB 页面。浏览器检查在最终仅涉及打印的横版浮动规则调整前完成；该打印规则不影响屏幕视口。
 
-原有 135 个受保护文件的 SHA-256 一致，包含其他五本样书、ai-media、原有十张图和本书其余原稿；本书既有文件仅更新书籍配置、后记及素材来源说明。新版实际样张为 `exports/shore-and-space/previews/*-color-board.png`，入口仍为 `design/folio.html`。
+原有 135 个受保护文件的 SHA-256 一致，包含其他五本样书、ai-media、原有十张图和本书其余原稿；本书既有文件仅更新书籍配置、后记及素材来源说明。新版实际样张为 `exports/shore-and-space/previews/*-color-board.png`，入口仍为 `design/previews/folio.html`。
 
 最终页数为竖版 **31 页**、横版 **30 页**、A4 **28 页**（扩篇前为 17 / 17 / 16 页），EPUB 24 章。三份 PDF 无结构错误，WeasyPrint 无警告；分别保留 4 / 4 / 18 项原始位图分辨率提醒。EPUBCheck 零错误、零警告。
 
@@ -132,3 +132,67 @@ WeasyPrint 无警告。原始图像长边 1536 像素，满版与大图页低于
 将 editorial 的屏幕规则移入 `editorial-screen.css` 并使用 `media="screen"` 加载。重新构建《内容的复利》《留一点时间思考》三种 PDF 与 EPUB，页数分别仍为 42 / 42 / 28 和 38 / 36 / 24，PDF 零提醒、渲染器无警告，两本 EPUBCheck 均零错误、零警告。76 个浏览器页面 / 视口组合全部通过。
 
 现有六本构建报告均无结构错误和渲染器警告；摄影集保留素材分辨率提醒。文档同步六本书与 FOLIO 配置，复现步骤补全摄影集预览。整个 vault 的 160 个文件路径与 SHA-256 一致。完整判断与后续重点见 [项目整体复核](project-review.md)。本轮没有提交或推送 Git。
+
+
+## 2026-09-28 · 第二轮项目复查
+
+- 24 项 unittest 通过，新增配置类型、HTML-only 书架、EPUB 报告更新、失败保留旧成品和空简介回归用例。
+- 六本原稿共 75 章重新解析通过。
+- 系统临时目录内完成真实 HTML → PDF / EPUB 导出：PDF 5 页、零提醒，EPUBCheck 5.3.0 零错误、零警告；再次生成 EPUB 不做正式校验时旧报告被清除。
+- 现有六本样书 PDF / EPUB 未重建；此前 76 组浏览器检查属于上一轮结果。
+- vault 160 个文件路径及 SHA-256 完全不变。
+
+本轮另检查 HTML-only 书架与现有书架在 1440 / 390 px 下的 4 组浏览器结果：均无横向溢出或损坏图片。
+
+
+## 2026-09-28 · 主力书系与 FOLIO 纸本细节
+
+- 重建 layout-lab、field-notes、shore-and-space 的三种 PDF、HTML 与 EPUB，共 9 份 PDF、3 份 EPUB。
+- 页数：内容的复利 42 / 42 / 25（A4 从 28 减至 25）；留一点时间思考 38 / 36 / 24；岸与间 31 / 30 / 28。
+- 25 项自动测试通过，新增短注释合组的文本、链接、源文档不变与长注释不合组回归测试。
+- 9 份 PDF 无结构错误、无渲染器警告；摄影集仍保留 4 / 4 / 18 项分辨率提醒。3 本 EPUBCheck 零错误、零警告。
+- 从原稿段落、图注、表格单元格提取至少 12 字符的句段，核对 9 份 PDF 文本均能找到；此项不替代逐字校对。
+- 76 组现有浏览器页面与视口检查重新通过。人工查看 A4 侧栏、全书缩略图及竖版 / 横版双图页。
+- 实际书页对照由 `scripts/previews/review_refinement.py` 生成，页码依据 PDF 书签定位。修改前 PDF 仅为本地审阅快照，不入库。
+
+- 新增书页对照页面在 1440 / 390 px 下另通过 2 组检查，图片全部加载、无横向溢出。vault 160 个文件路径及 SHA-256 完全不变。
+
+## 2026-09-29 · 目录整理
+
+25 项测试、161 个本地链接及 76 组浏览器检查通过。五个预览工具迁移后运行成功，vault 160 个文件未变。目录迁移和验证范围见 [整理记录](organization-2026-09-29.md)。
+
+## 2026-09-29 · 整理后使用边界复查
+
+28 项测试通过；覆盖三种 HTML 单独导出、无成品草稿配置错误、已有成品配置无效时书架仍可更新。书架 1440 / 390 px 两组检查通过，无横向溢出或缺图，六本书均出现横版与 A4 阅读链接。vault 160 个文件未变，本轮未重建 PDF / EPUB。
+
+## 2026-09-29 ·《内容的复利》与《欲望制造》审美精修
+
+- 精修 editorial 与 spectacle 的模板、纸本 CSS、屏幕 CSS 及 EPUB CSS；同步重建共用 editorial 的《留一点时间思考》。
+- 三本书的 9 份 PDF 和 3 本 EPUB 均无结构错误、无检查提醒、无渲染警告；3 本 EPUBCheck 零错误、零警告。
+- 页数（竖版 / 横版 / A4）：内容的复利 42 / 42 / 25；欲望制造 49 / 51 / 35；留一点时间思考 38 / 35 / 24。
+- 29 项自动测试通过，包含章首页相同引导语去重、不同引导语与正文保留的 HTML / EPUB 回归测试。
+- 80 组浏览器检查通过，新增两本主力书的 A4 阅读版与章名 / 宣言重叠检查；另完成两书三尺寸、两视口的 12 组针对性检查。
+- 9 份 PDF 中均能找到原稿段落、图注、表格的至少 12 字符句段；此项用于发现内容遗漏，不代替逐字校对。
+- 人工查看封面、章首、目录、侧栏和双栏 / 横版样张；真实前后对照由 `review_refinement.py --focus aesthetics` 生成，输出到 `exports/aesthetic-review/`。
+- 文档与设计页 167 个本地链接有效。vault 160 个文件的路径与 SHA-256 完全未变；未生成或替换原图。
+
+## 2026-09-29 · SPECTACLE 摄影杂志重设计
+
+用户选择“奢侈品摄影杂志：大图、留白、精致字排”。重写 spectacle 模板与三种媒介样式：暖白摄影封面、酒红刊头、章首与正文连续排版；取消十张独立黑红章节海报。editorial 和其他主题保持不变。
+
+- 《欲望制造》十章原文与素材未改，PDF 页数为 38 / 40 / 28（竖版 / 横版 / A4）。竖版目录为一页。
+- PDF 均无结构错误、无渲染警告；竖版、横版无提醒。A4 封面大图约 194 DPI，保留低于 250 DPI 的提醒，未放大伪造细节。
+- EPUBCheck 零错误、零警告；29 项自动测试通过。
+- 三种 PDF 均能找到原稿段落、图注与表格中至少 12 字符的句段；不替代逐字校对。
+- 80 组浏览器检查最终通过，覆盖桌面、手机及 EPUB，并检查章名与引导语不重叠。
+- `review_refinement.py --focus spectacle` 生成五组修改前后真实 PDF 页面；旧 PDF 位于本地 `exports/spectacle-redesign/before/`。
+- 168 个文档与设计页本地链接有效；vault 160 个文件路径和 SHA-256 完全不变。
+
+
+## 2026-09-29 · SPECTACLE 构图张力精修
+
+- 延续奢侈品摄影杂志方向：大图偏向纸边，酒红刊头跨越照片边界，纸白书名块叠入画面；扩大章号、引文与正文的尺度差，开场与结尾错位字排。
+- 竖版 40 页、横版 41 页、A4 29 页；三版 PDF 无结构错误，EPUBCheck 零错误、零警告。横版封面 228 DPI、A4 封面 197 DPI，保留低于 250 DPI 的提醒。
+- 29 项单元测试通过；80 个浏览器页面／视口组合检查无错误。手机副标题宽度随后单独复核三种版式。正文长句片段检查无缺失，168 个本地链接有效。
+- vault 全部 160 个文件哈希与改动前一致。
+- [本次前后对照](../../exports/spectacle-tension/index.html)，使用 `python scripts/previews/review_refinement.py --focus tension` 重新生成；修改前样张依赖本地保留的旧 PDF。

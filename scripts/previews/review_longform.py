@@ -6,7 +6,7 @@ import re,json,html
 import pymupdf
 import yaml
 from PIL import Image, ImageDraw, ImageFont
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'exports/longform-review'
 BOOKS=['layout-lab','field-notes','desire-manufacture','business-architecture','through-volatility']
 BASELINE={'layout-lab':[18,19,15],'field-notes':[8,8,6],'desire-manufacture':[19,19,15],'business-architecture':[12,14,11],'through-volatility':[13,14,12]}

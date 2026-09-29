@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 import pymupdf as fitz
 from PIL import Image, ImageDraw, ImageFont
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 
 def main():
     folder=ROOT/'exports/shore-and-space'

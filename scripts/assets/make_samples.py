@@ -2,7 +2,7 @@
 from pathlib import Path
 import math
 from PIL import Image, ImageDraw, ImageFont
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'vault/assets/layout-lab'
 FONT = ROOT / 'design/fonts/NotoSansSC-Regular.ttf'
 S = 3
@@ -68,5 +68,5 @@ def generate():
         text(d,27,y,f'0{i+1} / {label}',18,RED)
         for j in range(3): line(d,(27,y+53+j*23,333,y+53+j*23),'#cbcbbf')
     im.save(OUT/'review-card.png',dpi=(300,300))
-    (OUT/'SOURCE.md').write_text('这里的四张 PNG 均由 scripts/make_samples.py 原创绘制。图表数字为虚构的排版测试数据，不构成研究结论。字体采用 Noto Sans SC（SIL OFL 1.1）。可随本项目使用、修改、分发。\n',encoding='utf-8')
+    (OUT/'SOURCE.md').write_text('这里的四张 PNG 均由 scripts/assets/make_samples.py 原创绘制。图表数字为虚构的排版测试数据，不构成研究结论。字体采用 Noto Sans SC（SIL OFL 1.1）。可随本项目使用、修改、分发。\n',encoding='utf-8')
 if __name__=='__main__': generate()

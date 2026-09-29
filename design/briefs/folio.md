@@ -2,7 +2,7 @@
 
 专为摄影集、作品集、旅行影像与图片为主的书设计。示例书《岸与间》位于 `vault/books/shore-and-space`，包含 24 章、20 张独立影像，个别图片在对照页与札记中有意重现。
 
-[实际书页预览](folio.html) · [原稿](../vault/books/shore-and-space/) · [素材与提示词](../vault/assets/shore-and-space/SOURCE.md)
+[实际书页预览](../previews/folio.html) · [原稿](../../vault/books/shore-and-space) · [素材与提示词](../../vault/assets/shore-and-space/SOURCE.md)
 
 ## 视觉语言
 
@@ -65,10 +65,10 @@ EPUB 为流式版本，全部图片保持完整比例，双图和组照按顺序
 ```bash
 conda activate webproj
 python scripts/publish.py build shore-and-space --profile all --epubcheck
-python scripts/make_folio_review.py
+python scripts/previews/make_folio_review.py
 ```
 
-打开 `design/folio.html` 查看三种尺寸的真实 PDF 样张与下载入口；全书缩略图在 `exports/shore-and-space/previews/*-contact.png`。模板在 `website/templates/folio.html.j2`，样式为 `folio.css`、`folio-screen.css` 和 `folio-epub.css`。
+打开 `design/previews/folio.html` 查看三种尺寸的真实 PDF 样张与下载入口；全书缩略图在 `exports/shore-and-space/previews/*-contact.png`。模板在 `website/templates/folio.html.j2`，样式为 `folio.css`、`folio-screen.css` 和 `folio-epub.css`。
 
 ## 影像来源与印刷边界
 
@@ -84,3 +84,10 @@ python scripts/make_folio_review.py
 新增图片全部为 AI 生成原图，包括工艺与运动模糊的视觉模拟，不宣称真实拍摄或实际蓝晒制作。原有十张图未做滤镜处理。预览脚本新增三种尺寸的 `*-color-board.png`，展示扩篇的十二个章节。
 
 扩篇版最终输出：竖版 31 页、横版 30 页、A4 28 页，EPUB 24 章。三份 PDF 保留原始图像分辨率提醒，文字与图注完整性检查通过。
+
+
+## 0.3 双图细节
+
+纸本 `pair` 版式采用统一图像区域，横图与竖图对齐底边，图注从同一水平位置开始；图像仍以 contain 保留完整比例，空白留在上方。竖版 / 横版 / A4 图像区域高度分别为 80 / 76 / 118 mm。屏幕与流式 EPUB 继续按现有自然阅读顺序展示。全书页数及原图分辨率提醒数量均不变。
+
+运行 `python scripts/previews/review_refinement.py` 查看 [三种纸面双图对照](../../exports/refinement-review/index.html)。

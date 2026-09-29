@@ -4,9 +4,9 @@
 .editorial .contents li { border-top: .4pt solid var(--line); padding: 4mm 0; }
 .editorial .contents a { font-size: 12pt; }
 .editorial .contents-subtitle { margin: 2mm 8mm 0 11mm; font: 7.5pt/1.7 ArkSerif; color: var(--muted); }
-.editorial .chapter-heading { position: relative; padding: 6mm 0 5mm 14mm; border-top: .5pt solid var(--ink); margin-bottom: 6mm; }
-.editorial .chapter-number { position: absolute; top: 8mm; left: 0; font: 10pt/1.5 ArkSans; letter-spacing: .05em; }
-.editorial .chapter-heading h1 { font-size: 23pt; margin-bottom: 3mm; }
+.editorial .chapter-heading { position: relative; padding: 6mm 0 5mm 20mm; border-top: .5pt solid var(--ink); margin-bottom: 6mm; }
+.editorial .chapter-number { position: absolute; top: 7mm; left: 0; font: 25pt/1 ArkSerif; letter-spacing: -.04em; color:#8b7865; }
+.editorial .chapter-heading h1 { font-size: 22pt; margin-bottom: 3mm; }
 .editorial .chapter-subtitle { font-size: 8.5pt; }
 .editorial .prose { line-height: 1.85; }
 .editorial h2 { font-size: 13pt; margin-top: 6mm; }
@@ -41,3 +41,29 @@
 .editorial .footnotes-sep { margin: 3mm 0 2mm; break-after: avoid; }
 .editorial.landscape .prose > figure:not(.figure-tall) img { max-height: 66mm; }
 .editorial.landscape .text-flow:has(.footnotes) { break-inside: avoid; }
+
+/* Keep brief endnotes attached to their closing thought. */
+.editorial .chapter-notes { break-inside:avoid; }
+.editorial .chapter-notes > p { text-align:justify; text-indent:2em; margin-bottom:1mm; }
+@media print {
+ /* A tall illustration should not consume the full A4 text measure. */
+ .editorial.a4 .figure-tall { float:right; width:43mm; margin:3mm 0 5mm 7mm; }
+ .editorial.a4 .figure-tall img { max-height:95mm; }
+ .editorial.a4 th,.editorial.a4 td { padding-top:1.5mm; padding-bottom:1.5mm; }
+ .editorial.a4 h2 { margin-top:5mm; }
+}
+
+/* Quiet cover hierarchy and an editorial measure for secondary material. */
+.editorial .cover.photographic .cover-type h1 { font-size:43pt; letter-spacing:.065em; line-height:1.45; }
+.editorial .cover-deck { margin-top:4mm; font:6pt/1.7 ArkSans; letter-spacing:.12em; color:var(--muted); }
+.editorial .cover.photographic .cover-subtitle { font-size:9pt; }
+.editorial .cover.photographic .cover-author { margin-top:5mm; font-size:8pt; }
+.editorial .contents li { border-color:#d5cec2; }
+.editorial .contents .toc-number { font:11pt ArkSerif; color:#8b7865; }
+.editorial .prose > h2 + p,.editorial .text-flow > h2 + p { text-indent:0; }
+.editorial .callout { border-bottom:0; border-top:.5pt solid #aca090; padding-top:3mm; }
+.editorial .callout-title { color:#655644; letter-spacing:.06em; }
+.editorial td { border-bottom:.25pt solid #ddd6cb; }
+.editorial.landscape .cover.photographic .cover-type h1 { font-size:35pt; letter-spacing:.02em; }
+.editorial.landscape .cover-deck { max-width:78mm; }
+.editorial.a4 .cover.photographic .cover-type h1 { font-size:52pt; }

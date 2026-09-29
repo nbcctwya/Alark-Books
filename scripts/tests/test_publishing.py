@@ -30,6 +30,19 @@ class ManuscriptTests(unittest.TestCase):
             (self.directory / name).write_text(text, encoding='utf-8')
         (self.directory / 'book.yml').write_text(yaml.safe_dump({'title':'测试', 'chapters':list(chapters), **metadata}, allow_unicode=True), encoding='utf-8')
         return Manuscript(self.directory)
+    def test_invalid_book_metadata_types_raise_book_error(self):
+        for metadata in [{'title':123}, {'design':[]}, {'theme':{}}, {'author':[]}, {'cover_title_lines':'文字'}, {'manifesto_lines':[123]}]:
+            with self.subTest(metadata=metadata), self.assertRaises(BookError):
+                self.book({'a.md':'# 正文'}, **metadata)
+        (self.directory / 'book.yml').write_text('title: test\nchapters: [123]\n')
+        with self.assertRaises(BookError):
+            Manuscript(self.directory)
+
+    def test_invalid_chapter_metadata_types_raise_book_error(self):
+        for field, value in [('title', 123), ('layout', []), ('photo_layout', {})]:
+            with self.subTest(field=field), self.assertRaises(BookError):
+                self.book({'a.md':'---\n'+yaml.safe_dump({field:value})+'---\n# 正文'})
+
     def test_footnotes_cross_chapter_and_unicode_anchors(self):
         m=self.book({'a.md':'# 甲\n\n正文[^x]。[[b#中文标题|下一节]]\n\n[^x]: 甲注释\n', 'b.md':'# 乙\n\n## 中文标题\n\n正文[^x]。\n\n[^x]: 乙注释\n'})
         ids=[e.get('id') for c in m.chapters for e in c['document'].xpath('.//*[@id]')]
@@ -68,6 +81,20 @@ class ManuscriptTests(unittest.TestCase):
         self.assertEqual(m.chapters[0]['layout'], 'dense')
         with self.assertRaises(BookError):
             self.book({'a.md':'---\nlayout: unknown\n---\n# 正文'})
+
+    def test_editorial_endnotes_group_keeps_source_and_links(self):
+        from alark_publishing.cli import editorial_chapters
+        m=self.book({'a.md':'# 甲\n\n正文[^x]。\n\n> [!tip] 收尾\n> 最后一个行动。\n\n[^x]: 简短注释。'})
+        original=m.chapters[0]['html']
+        rendered=editorial_chapters(m.chapters)[0]['document']
+        group=rendered.find("div[@class='chapter-notes']")
+        self.assertIsNotNone(group)
+        self.assertEqual([e.tag for e in group], ['aside', 'hr', 'section'])
+        self.assertEqual(rendered.text_content(), m.chapters[0]['document'].text_content())
+        self.assertEqual(rendered.xpath('.//a/@href'), m.chapters[0]['document'].xpath('.//a/@href'))
+        self.assertEqual(m.chapters[0]['html'], original)
+        long=self.book({'a.md':'# 甲\n\n正文[^x]。\n\n最后一段。\n\n[^x]: '+('长注释。'*100)})
+        self.assertIsNone(editorial_chapters(long.chapters)[0]['document'].find("div[@class='chapter-notes']"))
 
     def test_short_and_long_tables_have_different_pagination(self):
         header='| 记录 | 内容 |\n| --- | --- |\n'

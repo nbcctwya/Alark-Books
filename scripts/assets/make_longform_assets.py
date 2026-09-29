@@ -4,7 +4,7 @@ Only writes vault/assets/longform-lab. All numerical examples are synthetic.
 from pathlib import Path
 import json
 from make_finance_samples import text as outline_text, rect, line, save
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'vault/assets/longform-lab'
 def text(x, y, value, size=20, color='#343a33'):
     # At 110–115 mm print width this keeps labels around 6 pt or larger.
@@ -86,6 +86,6 @@ def generate():
     s+=text(35,441,'虚构权重 · X / Y / Z 为占位符 · 不代表任何产品',15,GREEN)
     save(OUT/'investment-overlap.svg',960,470,'虚构重叠演示：组合甲X50%Y50%，乙X50%Z50%，等额合并X50%Y25%Z25%',s)
     (OUT/'data.json').write_text(json.dumps(dict(cash_balances=balances,cash_received=[8000,0,16000,4000],cash_paid=[6000,7000,9000,8000],hours=dict(vals),paths=paths,path_b_max_drawdown=1-90/130,overlap=[.5,.25,.25]),ensure_ascii=False,indent=2))
-    (OUT/'SOURCE.md').write_text('本目录全部 SVG 为 scripts/make_longform_assets.py 原创矢量图或几何插画，字形使用 Noto Sans SC（OFL）轮廓。所有经营、工时、现金与投资数据为明确设定的虚构演示，不使用真实公司或市场资料。数值输入保存在 data.json。插画不对应真实人物或地点。\n')
+    (OUT/'SOURCE.md').write_text('本目录全部 SVG 为 scripts/assets/make_longform_assets.py 原创矢量图或几何插画，字形使用 Noto Sans SC（OFL）轮廓。所有经营、工时、现金与投资数据为明确设定的虚构演示，不使用真实公司或市场资料。数值输入保存在 data.json。插画不对应真实人物或地点。\n')
 
 if __name__=='__main__':generate()

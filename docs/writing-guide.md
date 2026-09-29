@@ -84,7 +84,7 @@ subtitle: 用一句话说明读者将获得什么。
 
 ## 摄影封面
 
-可在 `book.yml` 指定 `cover_image`、`cover_alt`、`cover_credit`，图片放在 `vault/assets`，支持 PNG / JPEG / SVG。基础 editorial 主题没有封面图时生成纯字体封面。详见 [纸本方向说明](../design/editorial-direction.md)。
+可在 `book.yml` 指定 `cover_image`、`cover_alt`、`cover_credit`，图片放在 `vault/assets`，支持 PNG / JPEG / SVG。基础 editorial 主题没有封面图时生成纯字体封面。详见 [纸本方向说明](../design/briefs/editorial-direction.md)。
 
 
 ## 连续长文的版面试验
@@ -94,4 +94,8 @@ subtitle: 用一句话说明读者将获得什么。
 
 ## 图片为主的摄影集
 
-书籍配置设为 `design: folio`，章节用 `photo_layout: plate / pair / contact / essay / bleed` 选择版式。默认保留完整画幅；双图每两幅、组照每四幅连续图片组成一组；手机与 EPUB 按顺序展开。满版章节正文只允许一张独立图片，避免文字被裁掉。详见 [FOLIO 设计与写作示例](../design/folio.md)。
+书籍配置设为 `design: folio`，章节用 `photo_layout: plate / pair / contact / essay / bleed` 选择版式。默认保留完整画幅；双图每两幅、组照每四幅连续图片组成一组；手机与 EPUB 按顺序展开。满版章节正文只允许一张独立图片，避免文字被裁掉。详见 [FOLIO 设计与写作示例](../design/briefs/folio.md)。
+
+## YAML 字段类型
+
+书名、作者、简介、章节标题及版式名称使用文本；纯数字标题请加引号，例如 `title: "2026"`。`chapters` 使用非空文件名列表；`cover_title_lines`、`manifesto_lines`、`end_lines` 使用文本列表。填错类型时，构建器会指出字段。简介与副标题可省略，EPUB 不写入空的可选元数据。

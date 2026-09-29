@@ -34,9 +34,9 @@ cover_credit: 摄影者姓名与授权说明
 
 ## 图像来源
 
-本次使用内置 **image_gen** 工具生成摄影风格的测试图，文件为 [coastal-study.png](../vault/assets/editorial/coastal-study.png)。图像没有指向真实拍摄地点，已在书中明确标为 AI 生成、非实拍。
+本次使用内置 **image_gen** 工具生成摄影风格的测试图，文件为 [coastal-study.png](../../vault/assets/editorial/coastal-study.png)。图像没有指向真实拍摄地点，已在书中明确标为 AI 生成、非实拍。
 
-最终提示词与生成信息完整保存在 [素材来源记录](../vault/assets/editorial/SOURCE.md)。主题为海岸石阶、灰蓝海面、柔和自然光与低饱和胶片质感；实际生成尺寸为 1536 × 1024。原图直接保存在项目内，没有经过脚本修图。
+最终提示词与生成信息完整保存在 [素材来源记录](../../vault/assets/editorial/SOURCE.md)。主题为海岸石阶、灰蓝海面、柔和自然光与低饱和胶片质感；实际生成尺寸为 1536 × 1024。原图直接保存在项目内，没有经过脚本修图。
 
 ## 输出性质
 

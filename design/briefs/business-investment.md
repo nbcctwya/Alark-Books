@@ -1,6 +1,6 @@
 # 商业蓝图与投资年鉴
 
-这两套设计分别用于《生意的结构》和《穿越波动》。与摄影书刊、极简随笔、奢华传播一起，构成五款样书方向。[并排比较](five-designs.html)。前两款共用 editorial 引擎，通过封面、素材和内容节奏形成不同表达；后三款具有独立主题样式。
+这两套设计分别用于《生意的结构》和《穿越波动》。与摄影书刊、极简随笔、奢华传播一起，构成五款样书方向。[并排比较](../previews/collection.html)。前两款共用 editorial 引擎，通过封面、素材和内容节奏形成不同表达；后三款具有独立主题样式。
 
 ## 04 / 商业蓝图
 
@@ -28,10 +28,10 @@
 
 ```bash
 conda activate webproj
-python scripts/make_finance_samples.py
+python scripts/assets/make_finance_samples.py
 python scripts/publish.py build business-architecture --profile all --epubcheck
 python scripts/publish.py build through-volatility --profile all --epubcheck
-python scripts/make_design_boards.py
+python scripts/previews/make_design_boards.py
 ```
 
 样书图形由脚本生成 SVG，中文字体转换成轮廓，放大不产生位图锯齿。素材目录含来源说明，投资目录另有 `data.json`。无须联网即可重建图形。

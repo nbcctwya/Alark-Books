@@ -12,9 +12,18 @@ from markdown_it import MarkdownIt
 from mdit_py_plugins.footnote import footnote_plugin
 
 from .paths import ROOT, VAULT
+from .themes import THEMES
 
 class BookError(ValueError):
     pass
+
+def text_fields(metadata, fields, context, required=()):
+    for field in fields:
+        if field not in metadata and field not in required:
+            continue
+        value = metadata.get(field)
+        if not isinstance(value, str) or (field in required and not value.strip()):
+            raise BookError(f'{context}: {field} 必须是' + ('非空文本' if field in required else '文本'))
 
 def read_markdown(path):
     text = path.read_text(encoding='utf-8').replace('\r\n', '\n')
@@ -89,8 +98,18 @@ class Manuscript:
         if not config.exists():
             raise BookError(f'缺少 {config}；用 init 创建书籍配置。')
         self.meta = yaml.safe_load(config.read_text(encoding='utf-8'))
-        if not isinstance(self.meta, dict) or not self.meta.get('title'):
-            raise BookError('book.yml 必须包含 title')
+        if not isinstance(self.meta, dict):
+            raise BookError('book.yml 必须是映射，包含 title 与 chapters')
+        text_fields(self.meta, ['title', 'author', 'publisher', 'identifier', 'language', 'subtitle',
+                    'series', 'eyebrow', 'edition', 'description', 'note', 'rights',
+                    'cover_image', 'cover_alt', 'cover_credit', 'manifesto_caption'], 'book.yml', required=['title'])
+        for field, allowed, default in [('design', THEMES, 'editorial'), ('theme', {'vermilion', 'forest'}, 'vermilion')]:
+            value = self.meta.get(field, default)
+            if not isinstance(value, str) or value not in allowed:
+                raise BookError(f'book.yml: {field} 只能是 ' + '、'.join(sorted(allowed)))
+        for field in ['cover_title_lines', 'manifesto_lines', 'end_lines']:
+            if field in self.meta and (not isinstance(self.meta[field], list) or any(not isinstance(line, str) for line in self.meta[field])):
+                raise BookError(f'book.yml: {field} 必须是文本列表')
         self.assets = {}
         self.chapters = []
         files = self.meta.get('chapters')
@@ -99,11 +118,14 @@ class Manuscript:
         parser = MarkdownIt('commonmark', {'html': False, 'typographer': True}).enable(['table', 'strikethrough']).use(footnote_plugin).use(wiki_plugin)
         seen = set()
         for index, filename in enumerate(files, 1):
+            if not isinstance(filename, str) or not filename.strip():
+                raise BookError(f'book.yml: chapters 第 {index} 项必须是非空文件名文本')
             path = (directory / filename).resolve()
             if not within(path, directory) or not path.is_file() or path in seen:
                 raise BookError(f'无效、重复或越界章节: {filename}')
             seen.add(path)
             metadata, source = read_markdown(path)
+            text_fields(metadata, ['title', 'subtitle', 'kicker', 'statement', 'layout', 'photo_layout'], filename)
             if not source.strip():
                 raise BookError(f'空章节: {filename}')
             document = html.fragment_fromstring(parser.render(source), create_parent='div')

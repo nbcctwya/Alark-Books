@@ -4,7 +4,7 @@
 
 视觉转为纸质书与摄影刊物。宋体用于书名、章节与正文，辅助黑体用于图注。内页以纸白、暖黑、细线与首行缩进组织阅读，摄影封面和纯字体封面共享版心关系。
 
-AIark 与 Alark 的署名体系保留，品牌名称以小字融入装帧。详细设计决策见 [纸本方向 v0.2](../design/editorial-direction.md)，可视化规范见 [visual-system.html](../design/visual-system.html)。
+AIark 与 Alark 的署名体系保留，品牌名称以小字融入装帧。详细设计决策见 [纸本方向 v0.2](../design/briefs/editorial-direction.md)，可视化规范见 [visual-system.html](../design/previews/visual-system.html)。
 
 ## 内容到成书
 

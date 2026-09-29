@@ -1,39 +1,49 @@
 @media screen {
- html { background: #232323; }
- body.spectacle { max-width: 1000px; margin: 28px auto; padding: 0; background: #f4efe6; }
- .spectacle .cover,.spectacle .manifesto,.spectacle .campaign-opener { width: 100%; max-width: var(--page-width); margin: 0 auto; }
- .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding: 55px 64px; }
- .spectacle .contents a::after { content: ''; }
- .spectacle .prose { max-width: none; }
- .spectacle .prose > p { max-width: none; }
- .spectacle .prose figure img { max-width: 100%; }
+ html { background:#e4dfd7; }
+ body.spectacle { max-width:1000px; margin:28px auto; background:var(--paper); }
+ .spectacle .cover,.spectacle .manifesto { width:100%; max-width:var(--page-width); margin:0 auto; }
+ .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding:50px 60px; }
+ .spectacle .contents a::after { content:none; }
+ .spectacle .prose,.spectacle.landscape .prose { max-width:none; }
+ .spectacle .prose figure img { max-width:100%; }
+ .spectacle .campaign-reading { border-top:1px solid var(--line); }
 }
-@media screen and (max-width: 650px) {
- body.spectacle { margin: 0; font-size: 16px; }
- .spectacle .cover { height: 720px; padding: 24px; }
- .campaign-masthead { font-size: 8px; }
- .campaign-masthead span:first-child { font-size: 25px; }
- .spectacle .campaign-title,.spectacle.landscape .campaign-title { left: 24px; right: 24px; top: 90px; width: auto; }
- .spectacle .campaign-title h1,.spectacle.landscape .campaign-title h1 { font-size: 62px; }
- .spectacle.landscape .campaign-title h1 span { display: inline; }
- .spectacle .campaign-title .campaign-subtitle { font-size: 12px; }
- .spectacle .campaign-image,.spectacle.landscape .campaign-image { width: 94%; height: 370px; right: 0; bottom: 88px; }
- .spectacle .campaign-word,.spectacle.landscape .campaign-word { font-size: 88px; left: 18px; bottom: 76px; }
- .spectacle .campaign-author,.spectacle.landscape .campaign-author { left: 24px; bottom: 56px; }
- .campaign-band { height: 40px; padding: 12px 0; font-size: 11px; }
- .spectacle .manifesto,.spectacle .campaign-opener { height: 650px; padding: 24px; }
- .spectacle .manifesto h1,.spectacle.landscape .manifesto h1,.spectacle .finale h1 { font-size: 41px; margin-top: 120px; }
- .manifesto-caption { font-size: 10px; }
- .spectacle .opener-index,.spectacle.landscape .opener-index { font-size: 145px; top: 72px; right: 24px; }
- .spectacle .opener-title,.spectacle.landscape .opener-title { left: 24px; right: 24px; top: 315px; }
- .spectacle .opener-title h1,.spectacle.landscape .opener-title h1 { font-size: 46px; }
- .spectacle .opener-statement,.spectacle.landscape .opener-statement { left: 24px; right: 24px; bottom: 70px; font-size: 19px; }
- .opener-bottom { left: 24px; bottom: 25px; }
- .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding: 36px 24px; }
- .spectacle .contents h1 { font-size: 30px; }
- .spectacle .contents a { font-size: 19px; }
- .spectacle blockquote { font-size: 27px; }
- .spectacle .prose figure img,.spectacle.landscape .prose figure img { max-width: 100%; }
- .spectacle table { font-size: 12px; }
- .spectacle th,.spectacle td { padding: 8px 5px; }
+@media screen and (max-width:650px) {
+ body.spectacle { margin:0; font-size:16px; }
+ .spectacle .cover { height:700px; padding:24px; }
+ .campaign-masthead { font-size:8px; }
+ .spectacle .campaign-word,.spectacle.landscape .campaign-word,.spectacle.a4 .campaign-word { left:18px; top:60px; font-size:87px; }
+ .spectacle .campaign-image,.spectacle.landscape .campaign-image,.spectacle.a4 .campaign-image { left:64px; right:0; top:151px; width:calc(100% - 64px); height:380px; }
+ .spectacle .campaign-title,.spectacle.landscape .campaign-title,.spectacle.a4 .campaign-title { left:18px; right:auto; top:408px; width:210px; padding:18px; }
+ .spectacle .campaign-title h1,.spectacle.landscape .campaign-title h1,.spectacle.a4 .campaign-title h1 { font-size:48px; }
+ .spectacle .campaign-title h1 span,.spectacle.landscape .campaign-title h1 span { display:block; }
+ .spectacle .campaign-subtitle,.spectacle.a4 .campaign-subtitle { font-size:12px; }
+ .campaign-footer { left:24px; right:24px; bottom:24px; font-size:8px; flex-wrap:wrap; }
+ .spectacle .manifesto { height:570px; padding:35px 24px; }
+ .spectacle .manifesto h1,.spectacle.landscape .manifesto h1,.spectacle.a4 .manifesto h1 { font-size:38px; margin-top:110px; }
+ .manifesto-caption { font-size:10px; }
+ .manifesto-imprint { left:24px; right:24px; bottom:35px; font-size:10px; }
+ .spectacle .colophon,.spectacle .contents,.spectacle .campaign-reading { padding:36px 24px; }
+ .spectacle.landscape .contents ol { columns:auto; }
+ .spectacle .contents a { font-size:18px; }
+ .spectacle .contents-kicker { font-size:9px; }
+ .opener-top { font-size:9px; }
+ .opener-heading { gap:16px; }
+ .opener-index { flex-basis:50px; font-size:48px; }
+ .spectacle .opener-title h1,.spectacle.a4 .opener-title h1 { font-size:32px; }
+ .opener-subtitle { font-size:12px; }
+ .opener-statement { margin-left:0; font-size:15px; padding-left:14px; }
+ .spectacle h2 { font-size:21px; }
+ .spectacle blockquote { font-size:22px; margin:28px 0; }
+ .spectacle figcaption { font-size:11px; }
+ .spectacle table { font-size:12px; }
+ .spectacle th,.spectacle td { padding:8px 4px; }
+}
+@media screen and (max-width:650px) {
+ .spectacle.landscape .prose > figure:not(.figure-tall) img,.spectacle.a4 .prose figure img { max-width:100%; height:auto; }
+}
+
+@media screen and (max-width:650px) {
+ .spectacle .opener-title h1.title-long,.spectacle.a4 .opener-title h1.title-long { font-size:24px; }
+ .spectacle .manifesto h1 span:nth-child(2),.spectacle.a4 .manifesto h1 span:nth-child(2) { font-size:45px; margin-left:12px; }
 }
